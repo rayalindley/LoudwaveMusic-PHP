@@ -1,0 +1,205 @@
+* {
+    font-family: "Madimi One";
+}
+
+body {
+    margin: 0px;
+    background-color: aliceblue;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+img {
+    margin: 0px;
+    padding: 0px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+header{
+    background-color: #00246b;
+    line-height: 10vh;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    padding: 0px 20px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color:#600404;
+    color: white;
+    text-align: center;
+}
+
+.search-bar {
+    padding: 15px;
+    width: 700px;
+    background-color: #00246b;
+    font-family: "Ojuju";
+    border: 1px solid #cadcfc;
+}
+
+.search-bar::placeholder {
+    color: rgb(255, 255, 255);
+}
+
+#menu{
+    color: white;
+    background-color: black;
+    line-height: 4vh;
+    display: flex;
+}
+
+#menu a{
+    line-height: 6vh;
+    padding: 13px 20px;
+}
+
+#menu a:hover {
+    background-color: white;
+    color: black;
+    padding: 13px 20px;
+}
+
+#artist-container {
+    margin: 10px 100px;
+    display: flex;
+    justify-content: center;
+}
+
+#artist-container div {
+    margin: 0px 10px;
+    background-color: white;
+}
+
+#artist-container div img {
+    width: 300px;
+}
+
+.artist-name {
+    margin: 10px 0px;
+}
+
+/*-----------*/
+#login-container{
+    margin: 0px 280px;
+    text-align: center;
+    color: black;
+    backdrop-filter: blur(5px);
+}
+
+.loginPage{
+    background-image: url("Images/raveBackground.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(5px);
+}
+
+input[type="email"], input[type="password"] {
+    width: 100%;
+    max-width: 400px; /* Adjust max-width as needed */
+    padding: 3px;
+    box-sizing: border-box;
+    overflow: scroll;
+}
+
+#login-container a{
+    color: black;
+    text-decoration: underline ;
+}
+
+#contact-container a{
+    color: black;
+}
+
+#registerHeader {
+    text-align: center;
+}
+
+#registerinputs {
+    margin: 10px 0px;
+}
+
+#registerinputs input {
+    margin: 10px;
+    padding: 10px;
+    width: 250px;
+    line-height: 18px;
+}
+
+
+#btnRegister {
+    background-color: #600404;
+    color: white;
+}
+
+.container {
+    padding: 4vh;
+    height: 100%;
+    text-align: center;
+    background-color: aliceblue;
+    color: black;
+}
+
+
+
+#loginBtn{
+    background-color: #00246b;
+    color: white;
+    font-weight: 700;
+}
+
+#loginBtn:hover{
+    text-decoration: underline;
+}
+
+#registerinputs input.cbshowpass {
+    width: 10px;
+}
+
+.messagebox {
+    margin: 50px 280px;
+    text-align: center;
+}
+
+.grid2container {
+    display: flex;
+}
+
+.rightgrid {
+    width: 50%;
+    height: 54855;
+    background-color: #00246b;
+}
+
+.leftgrid {
+    width: 50%;
+    height: 100%;
+}
+
+/* ---------------------- Organizer PHP ------------------------ */
+
+#organizer-container ul {
+    list-style-type: none;
+} 
+
+
+
+/* ---------------------- Profile PHP ------------------------ */
+#editProfileForm label {
+    text-align: left;
+}
