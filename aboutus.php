@@ -17,13 +17,17 @@
     <body>
         <header>
             <a href="index.php"> LoudWave Music </a>
-            <a href="register.php" id="register"> Register </a>
-        </header>
 
-        <nav id="menu">
-            <a href="aboutus.php"> About Us </a>
-            <a href="contactus.php">Contact Us</a>
-        </nav>
+            <div>
+                <a href="index.php"> Home </a>
+                <a href="aboutus.php" class="currnav"> About Us </a>
+                <a href="contactus.php"> Contact Us </a>
+            </div>
+
+            <a href="register.php" id="register"> Register </a>
+
+            
+        </header>
 
         <div  class="container">
                 

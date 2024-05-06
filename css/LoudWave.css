@@ -1,10 +1,11 @@
 * {
-    font-family: "Madimi One";
+    font-family: "Mohave";
+    font-size: 20px;
 }
 
 body {
-    margin: 0px;
-    background-color: aliceblue;
+    margin: 0px 20px;
+    background-color: #001F3F;
 }
 
 a {
@@ -22,13 +23,12 @@ nav ul {
 }
 
 header{
-    background-color: #00246b;
     line-height: 10vh;
     color: white;
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    text-align: center;
 }
 
 header a {
@@ -44,19 +44,64 @@ footer {
     text-align: center;
 }
 
+.indexlogo {
+    width: 50px;
+    height: 50px;
+}
+
 .search-bar {
-    padding: 15px;
-    width: 700px;
-    background-color: #00246b;
-    font-family: "Ojuju";
-    border: 1px solid #cadcfc;
+    padding: 15px 40px 15px 50px; 
+    width: 500px;
+    font-family: "Mohave";
+    border-radius: 50px;
+    background-image: url('images/search-icon.png');
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: 15px center; /* Adjust position of the search icon */
+    border: 1px solid #ccc;
+    margin: 0 auto;
 }
 
 .search-bar::placeholder {
-    color: rgb(255, 255, 255);
+    color: black;
+    opacity: 0.5;
+    font-size: 16px;
 }
 
-#menu{
+.currnav {
+    color: #7FDBFF;
+}
+
+.textbanner2 {
+    font-family: 'Passion One', sans-serif;
+    color: white;
+    font-size: 64px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-weight: 200;
+}
+
+.textbanner {
+    font-family: 'Passion One', sans-serif;
+    font-size: 64px;
+    background: linear-gradient(to right, #66AFCC 38%, #7FDBFF 53%, #66AFCC 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#bannersub {
+    margin-top: 0;
+    margin-bottom: 80px;
+    text-align: center;
+    color: white;
+    font-size: smaller;
+    font-weight: 400;
+}
+
+/* #menu{
     color: white;
     background-color: black;
     line-height: 4vh;
@@ -72,6 +117,29 @@ footer {
     background-color: white;
     color: black;
     padding: 13px 20px;
+} */
+
+.parcontainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.topcontainer {
+    position: absolute;
+    top: 0%; /* Position from the top */
+    left: 50%; /* Position from the left */
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    text-align: center; /* Align text (placeholder) to center */
+}
+
+.botcontainer {
+    background-color: rgba(127, 219, 255, 0.5);
+    position: absolute;
+    bottom: 10; /* Align to the bottom */
+    width: 100%; /* Set width to 100% */
+    height: calc(100% - 100px); /* Set height to 100% minus 100px for top container */
+    border-radius: 50px 50px 0 0;
 }
 
 #artist-container {
@@ -93,7 +161,7 @@ footer {
     margin: 10px 0px;
 }
 
-/*-----------*/
+/*-----LOGIN PAGE------*/
 #login-container{
     margin: 0px 280px;
     text-align: center;
@@ -126,6 +194,14 @@ input[type="email"], input[type="password"] {
     color: black;
 }
 
+#loginBtnIndex {
+    background-color: rgba(127,219,255, 0.5);
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+
+
+/*-----REGISTER PAGE------*/
 #registerHeader {
     text-align: center;
 }
@@ -202,4 +278,10 @@ input[type="email"], input[type="password"] {
 /* ---------------------- Profile PHP ------------------------ */
 #editProfileForm label {
     text-align: left;
+}
+
+
+/* ---------------------- Reports PHP ------------------------ */
+.reportcontainer {
+    color: white;
 }

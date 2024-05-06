@@ -23,12 +23,23 @@
             $hashed_password = $user['password'];
             
             if(password_verify($password, $hashed_password)) {
+                $usertype = $user['usertype'];
+                echo $usertype;
+
+                if($usertype == "Organizer") {
+                    $_SESSION['isOrganizer'] = true;
+                } else {
+                    $_SESSION['isOrganizer'] = false;
+                }
+
                 $userid = $user['userid_fk'];
                 $_SESSION['user_id'] = $userid;
                 //$userid =;
                 //$_SESSION['user_id'] = mysqli_insert_id($connection);
                 //$_SESSION['id'] = $userid;
                 //$_SESSION['user_id'] = mysqli_insert_id($connection);
+
+                
                 echo $userid;
                 header("location: index.php");
                 exit();
@@ -51,6 +62,7 @@
 <head>
     <title> LoudWave Music - Log In </title>
     <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Ojuju:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mohave:ital,wght@0,300..700;1,300..700&family=Passion+One:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>

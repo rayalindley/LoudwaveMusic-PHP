@@ -12,22 +12,37 @@
     <title> LoudWave Music - Reports </title>
     <link href="css/LoudWave.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Ojuju:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mohave:ital,wght@0,300..700;1,300..700&family=Passion+One:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <div> 
-            <a href="index.php">LoudWave Music</a>
+    <div> 
+            <a href="index.php">
+                <img src="images/lwmlogo.png" class="indexlogo">
+             </a>
+            
+            <a href="index.php">
+                LoudWave Music
+            </a>
+
+        </div>
+
+        <!-- <div>
+            <input type="text" placeholder="Search concerts, events, and artists" class="search-bar">
+        </div> -->
+        
+        <div>
+            <a href="index.php"> Home </a>
+            <a href="#"> Concerts </a>
+            <a href="aboutus.php"> About Us </a>
+            <a href="contactus.php"> Contact Us </a>
         </div>
 
         <div>
-            <input type="text" placeholder="Search concerts, events, and artists" class="search-bar">
-        </div>
-        
-        <div>
-            <a href="register.php"> Register </a>
-            <a href="#"> / </a>
-            <a href="login.php"><img src="Images/icons8-user-material-rounded/icons8-user-24.png" alt=""> Log in </a>
+            <a href="organizer.php"> Profile </a>
+            <a href="#"> Manage Concerts </a>
+            <a href="report.php" class="currnav"> Reports </a>
         </div>
     </header>
 
@@ -36,7 +51,7 @@
         <a href="contactus.php"> Contact Us </a>
     </div>
 
-    <div>
+    <div class="reportcontainer">
         <h2> REPORTS </h2>
 
         <?php

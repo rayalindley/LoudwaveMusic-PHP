@@ -30,7 +30,10 @@ include 'connect.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> LoudWave Music </title>
+    <link href="images/lwmlogo.png" rel="icon">
     <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Ojuju:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mohave:ital,wght@0,300..700;1,300..700&family=Passion+One:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <style>
         <?php include 'css/LoudWave.css'; ?>
     </style>
@@ -38,55 +41,76 @@ include 'connect.php';
 <body>
     <header>
         <div> 
-            <a href="index.php">LoudWave Music</a>
+            <a href="index.php">
+                <img src="images/lwmlogo.png" class="indexlogo">
+             </a>
+            
+            <a href="index.php">
+                LoudWave Music
+            </a>
+
         </div>
 
         <div>
-            <input type="text" placeholder="Search concerts, events, and artists" class="search-bar">
+            <a href="index.php" class="currnav"> Home </a>
+            <a href="#"> Concerts </a>
+            <a href="aboutus.php"> About Us </a>
+            <a href="contactus.php"> Contact Us </a>
         </div>
         
         <div>
             <?php if(isset($_SESSION['user_id'])): ?>
-                <!-- If user is logged in, display "Profile" link -->
-                <a href="profile.php"> Profile </a>
+                <?php if(isset($_SESSION['isOrganizer']) && $_SESSION['isOrganizer']): ?>
+                    <a href="organizer.php"> Profile </a>
+                    <a href="#"> Manage Concerts </a>
+                    <a href="report.php"> Reports </a>
+                <?php else: ?>
+                    <a href="profile.php"> Profile </a>
+                <?php endif; ?>
             <?php else: ?>
-                <!-- If user is not logged in, display "Register" and "Login" links -->
-                <a href="report.php"> Reports </a>
                 <a href="register.php"> Register </a>
-                <a href="#"> / </a>
-                <a href="login.php"><img src="Images/icons8-user-material-rounded/icons8-user-24.png" alt=""> Log in </a>
+                <a href="login.php" id="loginBtnIndex"><img src="Images/icons8-user-material-rounded/icons8-user-24.png" alt=""> Log in </a>
             <?php endif; ?>
         </div>
+
     </header>
 
-    <div id="menu">
-        <a href="aboutus.php"> About Us </a>
-        <a href="contactus.php"> Contact Us </a>
+    <div>
+        <h1 class="textbanner2"> Let the <span class="textbanner">Sound Waves</span> Take Over <br> with <span class="textbanner">LoudWave Music </span></h1>
+        <h6 id="bannersub"> Browse our selection, grab your friends, and let the sound waves take over. </h6>
     </div>
 
-    <div class="container">
-        <h1>HOT ARTISTS !</h1>
+    
+    <div class="parcontainer">
 
-        <div id="artist-container">
-            <div>
-                <img src="images/artist_bp.jpg">
-                <p class="artist-name"> Blackpink </p>
-            </div>
+        <div class="botcontainer">
+            <h1>HOT ARTISTS !</h1>
 
-            <div>
-                <img src="images/artist_bp.jpg">
-                <p class="artist-name"> Blackpink </p>
-            </div>
+            <div id="artist-container">
+                <div>
+                    <img src="images/artist_bp.jpg">
+                    <p class="artist-name"> Blackpink </p>
+                </div>
 
-            <div>
-                <img src="images/artist_bp.jpg">
-                <p class="artist-name"> Blackpink </p>
-            </div>
+                <div>
+                    <img src="images/artist_bp.jpg">
+                    <p class="artist-name"> Blackpink </p>
+                </div>
 
-            <div>
-                <img src="images/artist_bp.jpg">
-                <p class="artist-name"> Blackpink </p>
+                <div>
+                    <img src="images/artist_bp.jpg">
+                    <p class="artist-name"> Blackpink </p>
+                </div>
+
+                <div>
+                    <img src="images/artist_bp.jpg">
+                    <p class="artist-name"> Blackpink </p>
+                </div>
             </div>
+        </div>
+        
+        <div class="topcontainer">
+            <input type="text" placeholder="Search for concerts and artists to find your next favorite music experience" class="search-bar">
         </div>
     </div>
 </body>
