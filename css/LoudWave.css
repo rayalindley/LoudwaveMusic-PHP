@@ -340,6 +340,7 @@ input[type="email"], input[type="password"] {
 .indivreport {
     background-color: #004389;
     border-radius: 20px;
+    margin-bottom: 50px;
 }
 
 .indivreporttable td {
