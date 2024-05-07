@@ -113,11 +113,11 @@ include 'connect.php';
             <div id="concert-container">
                 <div class="concert-content">
                     <div>
-                        <a href=""><img src="images/concert_synk.png"></a>
+                        <a href=""><img src="images/concert_rtov.png"></a>
                     </div>
-                    
+
                     <div class="concert_maindeets">
-                        <h5> SYNK: Parallel Line </h5>
+                        <h5> R to V </h5>
                         <h6> SM Seaside Arena </br>
                         April 15, 2025 </h6>
                     </div>
@@ -126,11 +126,11 @@ include 'connect.php';
 
                 <div class="concert-content">
                     <div>
-                        <a href=""><img src="images/concert_unisverse.png"></a>
+                        <a href=""><img src="images/concert_bornpink.png"></a>
                     </div>
                     
                     <div class="concert_maindeets">
-                        <h5> UNIS VERSE </h5>
+                        <h5> Born Pink </h5>
                         <h6> SM Seaside Arena </br>
                         April 15, 2025 </h6>
                     </div>
@@ -152,11 +152,11 @@ include 'connect.php';
                 
                 <div class="concert-content">
                     <div>
-                        <a href=""><img src="images/concert_unisverse.png"></a>
+                        <a href=""><img src="images/concert_synk.png"></a>
                     </div>
-
+                    
                     <div class="concert_maindeets">
-                        <h5> UNIS VERSE </h5>
+                        <h5> SYNK: Parallel Line </h5>
                         <h6> SM Seaside Arena </br>
                         April 15, 2025 </h6>
                     </div>
