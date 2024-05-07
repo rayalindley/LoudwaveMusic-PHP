@@ -87,10 +87,10 @@
                     die("Query failed: " . mysqli_error($connection));
                   }
 
-                        
-                  echo "<h3>Concerts that are held in SM Seaside Arena</h3>";
-                  echo "<table border='1'>";
-                  echo "<tr><th>Concert Name</th><th>Date</th><th>Time</th><th>Venue</th><th>Tickets Sold</th></tr>";
+                  echo '<h3 class="reportname">Concerts that are held in SM Seaside Arena</h3>';
+                  echo '<table class="indivreporttable">';
+                  echo '<tr class="columntitle">';
+                  echo "<th>Concert Name</th><th>Date</th><th>Time</th><th>Venue</th><th>Tickets Sold</th></tr>";
                 
                   while ($row = mysqli_fetch_assoc($result )) {
                       // Generate a link to concertdetails.php with concert ID as parameter
@@ -119,9 +119,10 @@
                     if(!$result){
                       die("Query failed: " . mysqli_error($connection));
                     }
-                    echo "<h3>Concerts that will be held in 2025</h3>";
-                    echo "<table border='1'>";
-                    echo "<tr><th>Concert Name</th><th>Date</th><th>Time</th><th>Venue</th><th>Tickets Sold</th></tr>";
+                    echo '<h3 class="reportname">Concerts that will be held in 2025</h3>';
+                  echo '<table class="indivreporttable">';
+                  echo '<tr class="columntitle">';
+                    echo "<th>Concert Name</th><th>Date</th><th>Time</th><th>Venue</th><th>Tickets Sold</th></tr>";
                 
                     while($row = mysqli_fetch_assoc($result)){
                         echo "<tr>";
