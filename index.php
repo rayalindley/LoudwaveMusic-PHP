@@ -38,6 +38,7 @@ include 'connect.php';
         <?php include 'css/LoudWave.css'; ?>
     </style>
 </head>
+
 <body>
     <header>
         <div> 

@@ -1,33 +1,9 @@
 <?php
-    include 'connect.php';
+    include 'includes/header.php';
 ?>
 
-<style>
-    <?php
-        include 'css/LoudWave.css';
-    ?>
-</style>
-
-    <head>
-        <title> About Us - LoudWave Music </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="raya.css" rel="stylesheet">
-    </head>
-
+<html>
     <body>
-        <header>
-            <a href="index.php"> LoudWave Music </a>
-
-            <div>
-                <a href="index.php"> Home </a>
-                <a href="aboutus.php" class="currnav"> About Us </a>
-                <a href="contactus.php"> Contact Us </a>
-            </div>
-
-            <a href="register.php" id="register"> Register </a>
-
-            
-        </header>
 
         <div  class="container">
                 
@@ -50,3 +26,4 @@
             </p>
         </div>
     </body>
+</html>

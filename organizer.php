@@ -1,53 +1,17 @@
 <?php
-    include 'connect.php';
+    include 'includes/header.php';
     $sqlOrg = "SELECT * FROM tblorganizer";
     $resultOrg = mysqli_query($connection, $sqlOrg);
 ?>
 
-<style>
-    <?php
-        include 'css/LoudWave.css';
-    ?>
-</style>
 
-<head>
-    <title> LoudWave Music </title>
-    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Ojuju:wght@200..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Mohave:ital,wght@0,300..700;1,300..700&family=Passion+One:wght@400;700;900&display=swap" rel="stylesheet">
-</head>
 
-<body>
-    <header>
-        <div> 
-            <a href="index.php">
-                <img src="images/lwmlogo.png" class="indexlogo">
-             </a>
-            
-            <a href="index.php">
-                LoudWave Music
-            </a>
-
-        </div>
-
-        <!-- <div>
-            <input type="text" placeholder="Search concerts, events, and artists" class="search-bar">
-        </div> -->
-        
+    <div >
         <div>
-            <a href="index.php"> Home </a>
-            <a href="#"> Concerts </a>
-            <a href="aboutus.php"> About Us </a>
-            <a href="contactus.php"> Contact Us </a>
+            <button> My Profile </button>
+            <button> Other Organizers </button>
         </div>
 
-        <div>
-            <a href="organizer.php" class="currnav"> Profile </a>
-            <a href="#"> Manage Concerts </a>
-            <a href="report.php"> Reports </a>
-        </div>
-    </header>
-
-    <div class="nomargin-container">
         <div class="orgprofile-container">
             <form>
                 <button style="color:black;"> Add Event </button>
