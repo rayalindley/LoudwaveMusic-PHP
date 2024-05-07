@@ -40,22 +40,30 @@
     <div class="container">
         <div>
             <div id="organizer-container">
-                <h2>Concerts</h2>
-                <ul>
                     <?php
+                       echo "<table border='1'>";
+                        echo "<tr><th>Concert Name</th><th>Date</th><th>Time</th><th>Venue</th><th>Tickets Sold</th><th>Edit</th><th>Delete</th></tr>";
+
                         while ($row = mysqli_fetch_assoc($resultOrg)) {
                             // Generate a link to concertdetails.php with concert ID as parameter
-                            echo "<li>
-                                Concert ID: {$row['concertID']}<br>
-                                Concert Name: {$row['name']}<br>
-                                Concert Date: {$row['datetime']}<br>
-                                Concert Venue: {$row['province']}, {$row['city']}<br>
-                                <a href='concertdetails.php?id={$row['concertID']}'>Edit</a>
-                                <br><br>
-                            </li>";
+                            echo "<tr>";
+                            echo "<td>" . $row['concert_name'] . "</td>";
+                            echo "<td>" . $row['date'] . "</td>";
+                            echo "<td>" . $row['start_time'] . " - " . $row['end_time'] . "</td>";
+                            $venueID = $row['venueid'];
+                            $venueQuery = "SELECT venue_name FROM tblvenue WHERE venueid = $venueID";
+                            $venueResult = mysqli_query($connection, $venueQuery);
+                            $venue = mysqli_fetch_assoc($venueResult);
+                            $venueName = $venue['venue_name'];
+                            echo "<td>" . $venueName . "</td>";
+                            echo "<td>" . $row['tickets_sold'] . "</td>";
+                            echo "<td> <a href='concertdetails.php?id={$row['concertid']}'>Edit</a> </td>";
+                            echo "<td>Delete</td>";
+                            echo "</tr>";
                         }
+                        echo "</table>";
+                            
                     ?>
-                </ul>
             </div>
         </div>
     </div>

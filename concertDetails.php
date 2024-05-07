@@ -1,96 +1,109 @@
 <?php
     include 'connect.php';
-    session_start(); // Start session to use session variables
- 
-    if(isset($_GET['id'])) {
-        $concertID = $_GET['id'];
-       
-        // Fetch concert details from the database based on concertID
-        $query = "SELECT * FROM tblconcert WHERE concertID = $concertID";
-        $result = mysqli_query($connection, $query);
-       
-        if(mysqli_num_rows($result) > 0) {
-            $concert = mysqli_fetch_assoc($result);
-            // Store concertID in session variable for later use
-            $_SESSION['concertID'] = $concertID;
-        }    
-    } else {
-        //show empty form
-    }
-?>
+?> 
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Address Selector - Philippines</title>
-    <!--Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--JQuery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Concert Details</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body class="p-5">
     <form method="post">
-        
-    <div class="col-sm-6">
+        <div class="col-sm-6">
             <h3>Concert Details</h3>
         </div>
         <hr>
         <div class="col-sm-6 mb-3">
             <label class="form-label">Concert Name *</label>
-            <input type="text" class="form-control form-control-md" name="name_text" id="name-text" required>
+            <input type="text" class="form-control form-control-md" name="name_text" placeholder="Concert Name" required>
         </div>
         <div class="col-sm-6 mb-3">
             <label class="form-label">Concert Date *</label>
-            <input type="datetime-local" class="form-control form-control-md" name="date_text" id="date-text" required>
+            <input type="date" class="form-control form-control-md" name="date_text" required>
         </div>
         <div class="col-sm-6 mb-3">
-            <label class="form-label">Region *</label>
-            <select name="region" class="form-control form-control-md" id="region"></select>
-            <input type="hidden" class="form-control form-control-md" name="region_text" id="region-text" required>
+            <label class="form-label">Start Time *</label>
+            <input type="time" class="form-control form-control-md" name="start_time" required>
         </div>
         <div class="col-sm-6 mb-3">
-            <label class="form-label">Province *</label>
-            <select name="province" class="form-control form-control-md" id="province"></select>
-            <input type="hidden" class="form-control form-control-md" name="province_text" id="province-text" required>
+            <label class="form-label">End Time *</label>
+            <input type="time" class="form-control form-control-md" name="end_time" required>
         </div>
         <div class="col-sm-6 mb-3">
-            <label class="form-label">City / Municipality *</label>
-            <select name="city" class="form-control form-control-md" id="city"></select>
-            <input type="hidden" class="form-control form-control-md" name="city_text" id="city-text" required>
-        </div>
-        <div class="col-md-6 mb-3">
-            <label for="street-text" class="form-label">Street (Optional)</label>
-            <input type="text" class="form-control form-control-md" name="street_text" id="street-text">
+            <label class="form-label">Concert Venue *</label>
+            <select class="form-control form-control-md" name="venue_text" required>
+                <option value="">Select a venue</option>
+                <option value="SM Seaside Arena">SM Seaside Arena</option>
+                <option value="Mall of Asia Arena">Mall of Asia Arena</option>
+            </select>
         </div>
         <div class="col-md-6">
-        <input type="submit" value="Add Concert" name="btnconcert">
+            <input type="submit" value="Add Concert" name="btnconcert">
         </div>
     </form>
 </body>
 </html>
 
-<script src="js/ph-address-selector.js" defer></script>
-
-<?php	 
-	if(isset($_POST['btnconcert'])){
+<?php
+    if(isset($_POST['btnconcert'])){
         $name = $_POST['name_text'];
         $date = $_POST['date_text'];
-        $region = $_POST['region_text'];
-        $province = $_POST['province_text'];
-        $city = $_POST['city_text'];
-        $street = $_POST['street_text'];
-     
-        $checkQuery = "SELECT * FROM tblconcert WHERE name = '$name'";
-        $checkResult = mysqli_query($connection, $checkQuery);
-     
-        if(mysqli_num_rows($checkResult) == 0){
-            $insertQuery = "INSERT INTO tblconcert (name, datetime, region, province, city, street)
-                            VALUES ('$name', '$date', '$region', '$province', '$city', '$street')";
-            mysqli_query($connection, $insertQuery);
-            echo "<script language='javascript'> alert('New record saved.'); </script>";
+        $start_time = $_POST['start_time'];
+        $end_time = $_POST['end_time'];
+        $venue_text = $_POST['venue_text'];
+
+        // Prepare and execute query to fetch venue ID based on venue text
+        $venue_query = "SELECT venueid FROM tblvenue WHERE venue_name = ?";
+        if ($venue_result = mysqli_prepare($connection, $venue_query)) {
+            mysqli_stmt_bind_param($venue_result, "s", $venue_text);
+            mysqli_stmt_execute($venue_result);
+            mysqli_stmt_store_result($venue_result);
+            
+            if (mysqli_stmt_num_rows($venue_result) == 1) {
+                mysqli_stmt_bind_result($venue_result, $venueid);
+                mysqli_stmt_fetch($venue_result);
+            } else {
+                echo "Error: Venue not found.";
+                exit(); // Exit the script if the venue is not found
+            }
+            mysqli_stmt_close($venue_result);
         } else {
-            echo "<script language='javascript'> alert('Concert already exists.'); </script>";
+            echo "Error: Failed to prepare venue query.";
+            exit(); // Exit the script if there's an error with the query
+        }
+
+        // Check if there is an overlapping concert at the same venue and date
+        $check_query = "SELECT * FROM tblconcert WHERE venueid = ? AND date = ? AND (start_time >= ? AND end_time <= ?)";
+        if ($check_stmt = mysqli_prepare($connection, $check_query)) {
+            mysqli_stmt_bind_param($check_stmt, "isss", $venueid, $date, $start_time, $end_time);
+            mysqli_stmt_execute($check_stmt);
+            mysqli_stmt_store_result($check_stmt);
+            
+            if (mysqli_stmt_num_rows($check_stmt) > 0) {
+                echo "Error: There is already a concert scheduled at the selected venue and date/time.";
+                exit(); // Exit the script if there's an overlapping concert
+            }
+            mysqli_stmt_close($check_stmt);
+        } else {
+            echo "Error: Failed to prepare check query.";
+            exit(); // Exit the script if there's an error with the query
+        }
+
+        // Insert concert details into tblconcert with the fetched venue ID
+        $insert_query = "INSERT INTO tblconcert (concert_name, date, start_time, end_time, venueid) VALUES (?, ?, ?, ?, ?)";
+        if ($insert_stmt = mysqli_prepare($connection, $insert_query)) {
+            mysqli_stmt_bind_param($insert_stmt, "ssssi", $name, $date, $start_time, $end_time, $venueid);
+            if (mysqli_stmt_execute($insert_stmt)) {
+                echo "<script language='javascript'> alert('New record saved.'); </script>";
+            } else {
+                echo "Error: " . mysqli_error($connection);
+            }
+            mysqli_stmt_close($insert_stmt);
+        } else {
+            echo "Error: Failed to prepare insert statement.";
         }
     }
 ?>
