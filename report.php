@@ -113,7 +113,7 @@
 
             <div class="indivreport">
                 <?php
-                    $query = "SELECT concert_name, date, start_time, end_time, venueid, tickets_sold FROM tblconcert WHERE venueid = 1";
+                    $query = "SELECT concert_name, date, start_time, end_time, venueid, tickets_sold FROM tblconcert WHERE YEAR(date) = 2025";
                     $result = mysqli_query($connection,$query);
                     
                     if(!$result){
