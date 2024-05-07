@@ -41,6 +41,7 @@
         <div>
             <div id="organizer-container">
                     <?php
+                        echo "<h1> Concert List </h1>" ;
                        echo "<table border='1'>";
                         echo "<tr><th>Concert Name</th><th>Date</th><th>Time</th><th>Venue</th><th>Tickets Sold</th><th>Edit</th><th>Delete</th></tr>";
 
