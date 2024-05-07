@@ -65,7 +65,7 @@ include 'connect.php';
                     <a href="#"> Manage Concerts </a>
                     <a href="report.php"> Reports </a>
                 <?php else: ?>
-                    <a href="profile.php"> Profile </a>
+                    <a href="profile.php" class="rightmargin30"> Profile </a>
                 <?php endif; ?>
             <?php else: ?>
                 <a href="register.php"> Register </a>
@@ -84,28 +84,99 @@ include 'connect.php';
     <div class="parcontainer">
 
         <div class="botcontainer">
-            <h1>HOT ARTISTS !</h1>
+            <h1> FEATURED ARTISTS !</h1>
 
             <div id="artist-container">
                 <div>
-                    <img src="images/artist_bp.jpg">
-                    <p class="artist-name"> Blackpink </p>
+                    <img src="images/artist_blackpink.jpg">
+                    <p class="artist-name"> BLACKPINK </p>
                 </div>
 
                 <div>
-                    <img src="images/artist_bp.jpg">
-                    <p class="artist-name"> Blackpink </p>
+                    <img src="images/artist_unis.jpg">
+                    <p class="artist-name"> UNIS </p>
                 </div>
 
                 <div>
-                    <img src="images/artist_bp.jpg">
-                    <p class="artist-name"> Blackpink </p>
+                    <img src="images/artist_aespa.png">
+                    <p class="artist-name"> AESPA </p>
                 </div>
 
                 <div>
-                    <img src="images/artist_bp.jpg">
-                    <p class="artist-name"> Blackpink </p>
+                    <img src="images/artist_bini.jpg">
+                    <p class="artist-name"> BINI </p>
                 </div>
+            </div>
+                
+            <h1> HOT TICKETS!</h1>
+
+            <div id="concert-container">
+                <div class="concert-content">
+                    <div>
+                        <a href=""><img src="images/concert_synk.png"></a>
+                    </div>
+                    
+                    <div class="concert_maindeets">
+                        <h5> SYNK: Parallel Line </h5>
+                        <h6> SM Seaside Arena </br>
+                        April 15, 2025 </h6>
+                    </div>
+                    <a href=""> Buy Tickets >>>>> </a>
+                </div>
+
+                <div class="concert-content">
+                    <div>
+                        <a href=""><img src="images/concert_unisverse.png"></a>
+                    </div>
+                    
+                    <div class="concert_maindeets">
+                        <h5> UNIS VERSE </h5>
+                        <h6> SM Seaside Arena </br>
+                        April 15, 2025 </h6>
+                    </div>
+                    <a href=""> Buy Tickets >>>>> </a>
+                </div>
+                
+                <div class="concert-content">
+                    <div>
+                        <a href=""><img src="images/concert_unisverse.png"></a>
+                    </div>
+                    
+                    <div class="concert_maindeets">
+                        <h5> Unis Verse </h5>
+                        <h6> SM Seaside Arena </br>
+                        April 15, 2025 </h6>
+                    </div>
+                    <a href=""> Buy Tickets >>>>> </a>
+                </div>
+                
+                <div class="concert-content">
+                    <div>
+                        <a href=""><img src="images/concert_unisverse.png"></a>
+                    </div>
+
+                    <div class="concert_maindeets">
+                        <h5> UNIS VERSE </h5>
+                        <h6> SM Seaside Arena </br>
+                        April 15, 2025 </h6>
+                    </div>
+                    <a href=""> Buy Tickets >>>>> </a>
+                </div>
+                
+                <div class="concert-content">
+                    <div>
+                        <a href=""><img src="images/concert_biniverse.png"></a>
+                    </div>
+                    
+                    <div class="concert_maindeets">
+                        <h5> BINIverse </h5>
+                        <h6> SM Seaside Arena </br>
+                        April 15, 2025 </h6>
+                    </div>
+                    <a href=""> Buy Tickets >>>>> </a>
+                </div>
+
+                
             </div>
         </div>
         

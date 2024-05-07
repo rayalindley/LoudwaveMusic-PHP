@@ -47,13 +47,8 @@
         </div>
     </header>
 
-    <div id="menu">
-        <a href="aboutUsPage.html"> About Us </a>
-        <a href="contactPage.html"> Contact Us </a>
-    </div>
-
-    <div class="container">
-        <div>
+    <div class="nomargin-container">
+        <div class="orgprofile-container">
             <form>
                 <button style="color:black;"> Add Event </button>
             </form> 
@@ -61,7 +56,15 @@
             <div id="organizer-container">
                 <h2>Organizers</h2>
                 <ul>
+                    
                     <?php
+                        echo "<h3> Discounted Senior Citizen Customers (60 years old and above)</h3>";
+                        echo "<table border='1'>";
+
+                        echo "<td> First Name </td>";
+                        echo "<td> Last Name </td>";
+                        echo "<td> Birthdate </td>";
+                        echo "<td> Email Address </td>";
                         while ($row = mysqli_fetch_assoc($resultOrg)) {
                             echo "<li>
                                 ID: {$row['organizerid']}</br>
@@ -74,5 +77,7 @@
                 </ul>
             </div>
         </div>
+
+        <a href="logout.php">Logout</a>
     </div>
 </body>

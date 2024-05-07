@@ -46,13 +46,8 @@
         </div>
     </header>
 
-    <div id="menu">
-        <a href="aboutus.php"> About Us </a>
-        <a href="contactus.php"> Contact Us </a>
-    </div>
-
     <div class="reportcontainer">
-        <h2> REPORTS </h2>
+        <h1> REPORTS </h1>
 
         <?php
         $sqlreport2 = "SELECT p.firstname, p.lastname, p.birthdate, a.emailadd 
