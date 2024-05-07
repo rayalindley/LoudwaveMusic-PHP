@@ -13,16 +13,13 @@
         </div>
 
         <div class="orgprofile-container">
-            <form>
-                <button style="color:black;"> Add Event </button>
-            </form> 
             
             <div id="organizer-container">
                 <h2>Organizers</h2>
                 <ul>
                     
                     <?php
-                        echo "<h3> Discounted Senior Citizen Customers (60 years old and above)</h3>";
+                        echo "<h3> Other Organizers </h3>";
                         echo "<table border='1'>";
 
                         echo "<td> First Name </td>";

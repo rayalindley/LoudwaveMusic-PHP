@@ -23,11 +23,11 @@
                     echo '<h3 class="reportname"> Senior Citizen Accounts</h3>';
                     echo '<table class="indivreporttable">';
                     echo '<tr class="columntitle">';
-                    echo "<td> Account ID # </td>";
-                    echo "<td> First Name </td>";
-                    echo "<td> Last Name </td>";
-                    echo "<td> Birthdate </td>";
-                    echo "<td> Email Address </td>";
+                    echo "<th> Account ID # </th>";
+                    echo "<th> First Name </th>";
+                    echo "<th> Last Name </th>";
+                    echo "<th> Birthdate </th>";
+                    echo "<th> Email Address </th>";
                     echo "</tr>";
                     while ($row = mysqli_fetch_assoc($reportres)) {
                         echo "<tr>";
@@ -56,11 +56,11 @@
                     echo '<h3 class="reportname"> Senior Citizen Accounts</h3>';
                     echo '<table class="indivreporttable">';
                     echo '<tr class="columntitle">';
-                    echo "<td> Account ID # </td>";
-                    echo "<td> First Name </td>";
-                    echo "<td> Last Name </td>";
-                    echo "<td> Birthdate </td>";
-                    echo "<td> Email Address </td>";
+                    echo "<th> Account ID # </th>";
+                    echo "<th> First Name </th>";
+                    echo "<th> Last Name </th>";
+                    echo "<th> Birthdate </th>";
+                    echo "<th> Email Address </td>";
                     echo "</tr>";
                     while ($row = mysqli_fetch_assoc($reportres)) {
                         echo "<tr>";

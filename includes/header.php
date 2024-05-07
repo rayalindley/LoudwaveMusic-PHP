@@ -36,7 +36,7 @@
         <?php if(isset($_SESSION['user_id'])): ?>
             <?php if(isset($_SESSION['isOrganizer']) && $_SESSION['isOrganizer']): ?>
                 <a href="organizer.php" <?php if($currpage=='organizer.php') echo 'class="currnav"';?>> Profile </a>
-                <a href="#" <?php if($currpage=='contactus.php') echo 'class="currnav"';?>> Manage Concerts </a>
+                <a href="#" <?php if($currpage=='concert.php') echo 'class="currnav"';?>> Manage Concerts </a>
                 <a href="report.php" <?php if($currpage=='report.php') echo 'class="currnav"';?>> Reports </a>
             <?php else: ?>
                 <a href="profile.php" class="rightmargin30"> Profile </a>
