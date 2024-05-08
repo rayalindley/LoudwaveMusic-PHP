@@ -1,13 +1,19 @@
 <?php
     include 'connect.php';
+    include 'includes/header.php';
 ?> 
+
+<style>
+    <?php
+        include 'css/LoudWave.css';
+    ?>
+</style>    
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Concert Details</title>
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body class="p-5">
@@ -55,7 +61,6 @@
         $end_time = $_POST['end_time'];
         $venue_text = $_POST['venue_text'];
 
-        // Prepare and execute query to fetch venue ID based on venue text
         $venue_query = "SELECT venueid FROM tblvenue WHERE venue_name = ?";
         if ($venue_result = mysqli_prepare($connection, $venue_query)) {
             mysqli_stmt_bind_param($venue_result, "s", $venue_text);
@@ -67,15 +72,15 @@
                 mysqli_stmt_fetch($venue_result);
             } else {
                 echo "Error: Venue not found.";
-                exit(); // Exit the script if the venue is not found
+                exit();
             }
             mysqli_stmt_close($venue_result);
         } else {
             echo "Error: Failed to prepare venue query.";
-            exit(); // Exit the script if there's an error with the query
+            exit();
         }
 
-        // Check if there is an overlapping concert at the same venue and date
+        // Check if overlapping concert
         $check_query = "SELECT * FROM tblconcert WHERE venueid = ? AND date = ? AND (start_time >= ? AND end_time <= ?)";
         if ($check_stmt = mysqli_prepare($connection, $check_query)) {
             mysqli_stmt_bind_param($check_stmt, "isss", $venueid, $date, $start_time, $end_time);
@@ -84,15 +89,14 @@
             
             if (mysqli_stmt_num_rows($check_stmt) > 0) {
                 echo "Error: There is already a concert scheduled at the selected venue and date/time.";
-                exit(); // Exit the script if there's an overlapping concert
+                exit();            
             }
             mysqli_stmt_close($check_stmt);
         } else {
             echo "Error: Failed to prepare check query.";
-            exit(); // Exit the script if there's an error with the query
+            exit();
         }
 
-        // Insert concert details into tblconcert with the fetched venue ID
         $insert_query = "INSERT INTO tblconcert (concert_name, date, start_time, end_time, venueid) VALUES (?, ?, ?, ?, ?)";
         if ($insert_stmt = mysqli_prepare($connection, $insert_query)) {
             mysqli_stmt_bind_param($insert_stmt, "ssssi", $name, $date, $start_time, $end_time, $venueid);
