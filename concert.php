@@ -31,7 +31,6 @@
                             echo "<td>" . $row['date'] . "</td>";
                             echo "<td>" . $row['start_time'] . " - " . $row['end_time'] . "</td>";
 
-                            //fetch venuename from venueid
                             $venueID = $row['venueid'];
                             $venueQuery = "SELECT venue_name FROM tblvenue WHERE venueid = $venueID";
                             $venueResult = mysqli_query($connection, $venueQuery);

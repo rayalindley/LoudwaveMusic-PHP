@@ -4,7 +4,6 @@
 }
 
 body {
-    /* margin: 0px 20px; */
     margin: 0;
     background-color: #001F3F;
 }
@@ -58,7 +57,7 @@ footer {
     background-image: url('images/search-icon.png');
     background-repeat: no-repeat;
     background-size: 30px;
-    background-position: 15px center; /* Adjust position of the search icon */
+    background-position: 15px center;
     border: 1px solid #ccc;
     margin: 0 auto;
 }
@@ -102,24 +101,6 @@ footer {
     font-weight: 400;
 }
 
-/* #menu{
-    color: white;
-    background-color: black;
-    line-height: 4vh;
-    display: flex;
-}
-
-#menu a{
-    line-height: 6vh;
-    padding: 13px 20px;
-}
-
-#menu a:hover {
-    background-color: white;
-    color: black;
-    padding: 13px 20px;
-} */
-
 .parcontainer {
     position: relative;
     height: 100vh;
@@ -128,17 +109,17 @@ footer {
 
 .topcontainer {
     position: absolute;
-    top: 0%; /* Position from the top */
-    left: 50%; /* Position from the left */
-    transform: translate(-50%, -50%); /* Center horizontally and vertically */
-    text-align: center; /* Align text (placeholder) to center */
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .botcontainer {
     background-color: rgba(127, 219, 255, 0.5);
     position: absolute;
-    bottom: 10; /* Align to the bottom */
-    width: 100%; /* Set width to 100% */
+    bottom: 10;
+    width: 100%;
     height: 1000px;
     border-radius: 50px 50px 0 0;
     margin-left: 5px;
@@ -171,11 +152,6 @@ footer {
 .concert-content:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
-/* 
-#artist-container div img:hover {
-    width: 310px;
-    height: 210px;
-} */
 
 #artist-container div img {
     width: 300px;
@@ -206,7 +182,7 @@ footer {
 
 input[type="email"], input[type="password"] {
     width: 100%;
-    max-width: 400px; /* Adjust max-width as needed */
+    max-width: 400px;
     padding: 3px;
     box-sizing: border-box;
     overflow: scroll;

@@ -25,7 +25,6 @@
                   echo "<th>Concert Name</th><th>Date</th><th>Time</th><th>Tickets Sold</th></tr>";
                 
                   while ($row = mysqli_fetch_assoc($result )) {
-                      // Generate a link to concertdetails.php with concert ID as parameter
                       echo "<tr>";
                       echo "<td>" . $row['concert_name'] . "</td>";
                       echo "<td>" . $row['date'] . "</td>";
@@ -52,7 +51,6 @@
                   echo "<th>Concert Name</th><th>Date</th><th>Time</th><th>Tickets Sold</th></tr>";
                 
                   while ($row = mysqli_fetch_assoc($result )) {
-                      // Generate a link to concertdetails.php with concert ID as parameter
                       echo "<tr>";
                       echo "<td>" . $row['concert_name'] . "</td>";
                       echo "<td>" . $row['date'] . "</td>";
