@@ -85,35 +85,53 @@
     <title> LoudWave Music - My Profile</title>
     <link href="css/LoudWave.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Ojuju:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mohave:ital,wght@0,300..700;1,300..700&family=Passion+One:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
         <div> 
-            <a href="index.php">LoudWave Music</a>
+            <a href="index.php">
+                <img src="images/lwmlogo.png" class="indexlogo">
+             </a>
+            
+            <a href="index.php">
+                LoudWave Music
+            </a>
+
         </div>
 
         <div>
-            <input type="text" placeholder="Search concerts, events, and artists" class="search-bar">
+            <a href="index.php" class="currnav"> Home </a>
+            <a href="#"> Concerts </a>
+            <a href="aboutus.php"> About Us </a>
+            <a href="contactus.php"> Contact Us </a>
         </div>
         
         <div>
-            <!-- Display user profile information -->
-            <a>Welcome, <?php echo isset($user_account_data['username']) ? $user_account_data['username'] : ''; ?>!</a>
-            <a href="logout.php">Logout</a>
+            <?php if(isset($_SESSION['user_id'])): ?>
+                <?php if(isset($_SESSION['isOrganizer']) && $_SESSION['isOrganizer']): ?>
+                    <a href="organizer.php"> Profile </a>
+                    <a href="concertdetails.php"> Manage Concerts </a>
+                    <a href="report.php"> Reports </a>
+                <?php else: ?>
+                    <a href="profile.php" class="rightmargin30"> Profile </a>
+                    <a>Welcome, <?php echo isset($user_account_data['username']) ? $user_account_data['username'] : ''; ?>!</a>
+                    <a href="logout.php">Logout</a>
+                <?php endif; ?>
+            <?php else: ?>
+                <a href="register.php"> Register </a>
+                <a href="login.php" id="loginBtnIndex"><img src="Images/icons8-user-material-rounded/icons8-user-24.png" alt=""> Log in </a>
+            <?php endif; ?>
         </div>
+
     </header>
 
-    <div id="menu">
-        <a href="aboutus.php">About Us</a>
-        <a href="contactus.php">Contact Us</a>
-    </div>
-
-    <div class="container">
-        <h1> Profile </h1>
+    <div class="profilecontainer">
+        <!-- <h1> Profile </h1> -->
         
-        <div class="grid2container">  
-            <div>
+        <div class="customerprofilecontainer">
+            <div class="leftcontainer">
                 <nav>
                     <ul>
                         <li>Profile</li>
@@ -122,41 +140,52 @@
                 </nav>
             </div>
 
-            <div>
-
-                <div>
-                    <label>Email Address: </label>
-                    <?php echo isset($user_account_data['emailadd']) ? $user_account_data['emailadd'] : ''; ?>
+            <div class="rightcontainer">
+                <div class="customerdetails">
+                    <div>
+                        <label>Email Address: </label>
+                        <?php echo isset($user_account_data['emailadd']) ? $user_account_data['emailadd'] : ''; ?>
+                        <br>
+                        <a href="#"> Change Email </a>
+                        <a href="#"> Change Password </a>
+                    </div>
                     <br>
-                    <a href="#"> Change Email </a>
-                    <a href="#"> Change Password </a>
-                </div>
-                
-                <div>
-                    <form method="post" id="editProfileForm">
-                        <label for="txtfirstname">First Name:</label>
-                        <input type="text" name="txtfirstname" id="txtfirstname" placeholder="First Name" value="<?= $user_profile_data['firstname'] ?? '' ?>" required> <br>
+                    <div class="editdeets">
+                        <div class="deetlabels">
+                            <label for="txtfirstname">First Name:</label><br>
+                            <label for="txtlastname">Last Name:</label><br>
+                            <label for="gender">Gender:</label><br>
+                            <label for="txtbdate">Birthdate:</label><br>
+                        </div>
+                        
+                        <div>
+                            <form method="post" id="editProfileForm">
+                                <!-- <label for="txtfirstname">First Name:</label> -->
+                                <input type="text" name="txtfirstname" id="txtfirstname" placeholder="First Name" value="<?= $user_profile_data['firstname'] ?? '' ?>" required> <br>
 
-                        <label for="txtlastname">Last Name:</label>
-                        <input type="text" name="txtlastname" id="txtlastname" placeholder="Last Name" value="<?= $user_profile_data['lastname'] ?? '' ?>" required> <br>
+                                <!-- <label for="txtlastname">Last Name:</label> -->
+                                <input type="text" name="txtlastname" id="txtlastname" placeholder="Last Name" value="<?= $user_profile_data['lastname'] ?? '' ?>" required> <br>
 
-                        <label for="gender">Gender:</label>
-                        <select name="txtgender" id="gender" required>
-                            <option value="">Gender</option>
-                            <option value="Male" <?= ($user_profile_data['gender'] ?? '') == 'Male' ? 'selected' : '' ?>>Male</option>
-                            <option value="Female" <?= ($user_profile_data['gender'] ?? '') == 'Female' ? 'selected' : '' ?>>Female</option>
-                        </select> <br>
+                                <!-- <label for="gender">Gender:</label> -->
+                                <select name="txtgender" id="gender" required>
+                                    <option value="">Gender</option>
+                                    <option value="Male" <?= ($user_profile_data['gender'] ?? '') == 'Male' ? 'selected' : '' ?>>Male</option>
+                                    <option value="Female" <?= ($user_profile_data['gender'] ?? '') == 'Female' ? 'selected' : '' ?>>Female</option>
+                                </select> <br>
 
-                        <label for="txtbdate">Birthdate:</label>
-                        <input type="text" name="txtbdate" id="txtbdate" placeholder="Birthdate" onfocus="(this.type='date')" value="<?= $user_profile_data['birthdate'] ?? '' ?>" required> <br>
-
-                        <input type="submit" name="btnSave" value="Save" id="saveBtn">
-                        <input type="submit" name="btnDeleteAcc" value="Delete" id="deleteAccBtn">
-                    </form>
+                                <!-- <label for="txtbdate">Birthdate:</label> -->
+                                <input type="text" name="txtbdate" id="txtbdate" placeholder="Birthdate" onfocus="(this.type='date')" value="<?= $user_profile_data['birthdate'] ?? '' ?>" required> <br>
+                                <br>
+                                <div class="savedelbtn">
+                                    <input type="submit" name="btnSave" value="Save" id="saveBtn">
+                                    <input type="submit" name="btnDeleteAcc" value="Delete" id="deleteAccBtn">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
-            
-        </div>
     </div>
 </body>
 </html>

@@ -309,13 +309,55 @@ input[type="email"], input[type="password"] {
     margin: 0;
 }
 
-.nomargin-container {
-    
+/* ---------------------- Profile PHP ------------------------ */
+.profilecontainer {
+    color: white;
 }
 
-/* ---------------------- Profile PHP ------------------------ */
-#editProfileForm label {
+.customerprofilecontainer {
+    display: flex;
+    justify-content: center;
+}
+
+.leftcontainer {
+    width: 20%;
+}
+
+.leftcontainer li {
+    margin: 20px;
+}
+
+.rightcontainer {
+    width: 80%;
+    align-items: center;
+}
+
+.customerdetails {
+    background-color: #004389;
+    border-radius: 20px;
+    width: 90%;
+    padding: 20px;
+}
+
+.editdeets {
+    display: flex;
+}
+
+.deetlabels label {
+    font-weight: bold;
+    margin: 20px 50px;
+}
+
+#editProfileForm input, select {
     text-align: left;
+    margin: 5px 20px;
+    width: 300px;
+}
+
+#saveBtn::-ms-value {
+    max-width: 100px;
+    text-align: center;
+
 }
 
 
@@ -324,7 +366,7 @@ input[type="email"], input[type="password"] {
     color: white;
 }
 
-.reportcontainer h1 {
+.reportcontainer h1, .profilecontainer h1 {
     font-family: 'Passion One';
     font-size: 64px;
     font-weight: 200;
@@ -344,9 +386,10 @@ input[type="email"], input[type="password"] {
 }
 
 .indivreporttable td {
-    padding: 0px 20px;
+    padding: 2px 20px;
     color: white;
     font-size: 16px;
+    text-align: center;
 }
 
 .reportname {
@@ -355,6 +398,7 @@ input[type="email"], input[type="password"] {
 
 .columntitle {
     background-color: rgba(0,31,63, 0.3);
+    color: white;
 }
 
 /* ---------------------- Index-Concerts Section ------------------------ */
