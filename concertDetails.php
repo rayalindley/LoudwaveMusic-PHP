@@ -80,7 +80,6 @@
             exit();
         }
 
-        // Check if overlapping concert
         $check_query = "SELECT * FROM tblconcert WHERE venueid = ? AND date = ? AND (start_time >= ? AND end_time <= ?)";
         if ($check_stmt = mysqli_prepare($connection, $check_query)) {
             mysqli_stmt_bind_param($check_stmt, "isss", $venueid, $date, $start_time, $end_time);
