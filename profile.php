@@ -16,61 +16,46 @@
         $gender = mysqli_real_escape_string($connection, $_POST['txtgender']);
         $bdate = mysqli_real_escape_string($connection, $_POST['txtbdate']);
 
-        // Update user profile data in the database
         $sql_update = "UPDATE tbluserprofile SET firstname='$fname', lastname='$lname', gender='$gender', birthdate='$bdate' WHERE userid='$user_id'";
         $result_update = mysqli_query($connection, $sql_update);
 
         if ($result_update) {
-            // Redirect to profile page
             header("Location: profile.php");
             exit();
         } else {
-            // Handle update failure
             $update_error_message = "Failed to update profile. Please try again.";
         }
     }
 
     if(isset($_POST['btnDeleteAcc'])) {
-        // Delete user's profile data
         $sql_delete_profile = "DELETE FROM tbluserprofile WHERE userid='$user_id'";
         $result_delete_profile = mysqli_query($connection, $sql_delete_profile);
 
-        // Delete user's account data
         $sql_delete_account = "DELETE FROM tbluseraccount WHERE userid_fk='$user_id'";
         $result_delete_account = mysqli_query($connection, $sql_delete_account);
 
         if ($result_delete_profile && $result_delete_account) {
-            // Destroy session
             session_unset();
             session_destroy();
 
-            // Redirect to index page
             header("Location: index.php");
             exit();
         } else {
-            // Handle deletion failure
             $delete_error_message = "Failed to delete account. Please try again.";
         }
     }
 
-    // Query for user account data
     $sql_account = "SELECT * FROM tbluseraccount WHERE userid_fk = '$user_id'";
     $result_account = mysqli_query($connection, $sql_account);
 
-    // Query for user profile data
     $sql_profile = "SELECT * FROM tbluserprofile WHERE userid = '$user_id'";
     $result_profile = mysqli_query($connection, $sql_profile);
 
 
-    // Check if queries were successful
     if ($result_account && $result_profile) {
-        // Fetch user account data
         $user_account_data = mysqli_fetch_assoc($result_account);
-        
-        // Fetch user profile data
         $user_profile_data = mysqli_fetch_assoc($result_profile);
     } else {
-        // Handle errors
         echo "Error: " . mysqli_error($connection);
     }
 

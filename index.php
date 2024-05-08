@@ -1,27 +1,6 @@
 <?php
-session_start(); // Start session (if not already started)
-
-// Include database connection
-include 'connect.php';
-
-// Check if user is logged in and their account still exists
-// if (isset($_SESSION['user_id'])) {
-//     // Retrieve user ID from session
-//     $user_id = $_SESSION['user_id'];
-
-//     // Query to check if the user's account still exists
-//     $query = "SELECT * FROM tbluseraccount WHERE acctid = $user_id";
-//     $result = mysqli_query($connection, $query);
-
-//     // Check if the query returned any rows
-//     if (mysqli_num_rows($result) == 0) {
-//         // User's account does not exist, invalidate session (log out)
-//         session_unset(); // Unset all session variables
-//         session_destroy(); // Destroy the session
-//         header("location: index.php"); // Redirect to index page
-//         exit(); // Stop further script execution
-//     }
-// }
+    session_start();
+    include 'connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -114,15 +93,14 @@ include 'connect.php';
             <div id="concert-container">
                 <div class="concert-content">
                     <div>
-                        <a href=""><img src="images/concert_rtov.png"></a>
+                        <a href="ticket.php?concertname=R%20to%20V"><img src="images/concert_rtov.png"></a>
                     </div>
 
                     <div class="concert_maindeets">
                         <h5> R to V </h5>
-                        <h6> SM Seaside Arena </br>
-                        April 15, 2025 </h6>
+                        <h6> SM Seaside Arena <br> April 15, 2025 </h6>
                     </div>
-                    <a href=""> Buy Tickets >>>>> </a>
+                    <a href="ticket.php?concertname=R%20to%20V"> Buy Tickets >>>>> </a>
                 </div>
 
                 <div class="concert-content">
