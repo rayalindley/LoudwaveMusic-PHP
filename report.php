@@ -40,10 +40,7 @@
                 <?php
                   $query = "SELECT concert_name, date, start_time, end_time, venueid, tickets_sold FROM tblconcert WHERE venueid = 2";
                   $result = mysqli_query($connection,$query);
-                  
-                  if(!$result){
-                    die("Query failed: " . mysqli_error($connection));
-                  }
+                
 
                   echo '<h3 class="reportname">Concerts that are held in Mall Of Asia Arena</h3>';
                   echo '<table class="indivreporttable">';
@@ -104,9 +101,6 @@
                     $query = "SELECT concert_name, date, start_time, end_time, venueid, tickets_sold FROM tblconcert WHERE YEAR(date) = 2025";
                     $result = mysqli_query($connection,$query);
                     
-                    if(!$result){
-                      die("Query failed: " . mysqli_error($connection));
-                    }
                     echo '<h3 class="reportname">Concerts that will be held in 2025</h3>';
                   echo '<table class="indivreporttable">';
                   echo '<tr class="columntitle">';

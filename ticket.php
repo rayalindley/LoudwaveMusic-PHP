@@ -24,5 +24,21 @@
             <div> PLease Log In </div>
             
         <?php endif; ?>
+
+        <div class="concert-sections">
+        <div class="mvp-section">
+            <h3> MVP </h3>
+            <p> PHP 9,500 </p>
+        </div>
+        <div class="vip-section">
+            <h3> VIP </h3>
+            <p> PHP 6,500 </p>
+        </div>
+        <div class="myzone-section">
+            <h3> MY Zone </h3>
+            <p> PHP 4,000 </p>
+        </div>
+        </div>
+
     </body>
 </html>
