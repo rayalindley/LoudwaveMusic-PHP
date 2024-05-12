@@ -421,7 +421,11 @@ input[type="email"], input[type="password"] {
     font-size: small;
   }
 
+  .concert_table{
+    margin: 0 auto;
+  }
 
+<<<<<<< HEAD
 
 /* ---------------------- BuyTickets Section ------------------------ */
 
@@ -448,3 +452,11 @@ input[type="email"], input[type="password"] {
     margin-bottom: 10px;
   }
   
+=======
+  .concert_table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
+   }
+/* ---------------------- Index-Concerts Section ------------------------ */
+>>>>>>> a1d357b7cde131db38c3c6db4e77d8dd4e771854
