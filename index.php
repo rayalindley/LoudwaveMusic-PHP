@@ -43,7 +43,7 @@
                 <?php if(isset($_SESSION['isOrganizer']) && $_SESSION['isOrganizer']): ?>
                     <a href="organizer.php"> Profile </a>
                     <a href="concertdetails.php"> Manage Concerts </a>
-                    <a href="report.php"> Reports </a>
+                    <a href="dashboard.php"> Dashboard </a>
                 <?php else: ?>
                     <a href="profile.php" class="rightmargin30"> Profile </a>
                 <?php endif; ?>

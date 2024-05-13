@@ -337,17 +337,35 @@ input[type="email"], input[type="password"] {
 }
 
 
-/* ---------------------- Reports PHP ------------------------ */
-.reportcontainer {
+/* ---------------------- Reports Dashboard PHP ------------------------ */
+.dashboardcontainer {
     color: white;
 }
 
-.reportcontainer h1, .profilecontainer h1 {
+.dashboardcontainer h1, .profilecontainer h1 {
     font-family: 'Passion One';
     font-size: 64px;
     font-weight: 200;
     text-align: center;
     margin: 20px;
+}
+
+.rowstats {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.indivstat {
+    background-color: #004389;
+    border-radius: 20px;
+    width: 100%;
+    margin: 20px 50px;
+    padding: 10px;
+}
+
+.indivstat h6 {
+    margin: 0;
+    font-size: smaller;
 }
 
 .rowreports {
@@ -358,7 +376,12 @@ input[type="email"], input[type="password"] {
 .indivreport {
     background-color: #004389;
     border-radius: 20px;
-    margin-bottom: 50px;
+    width: 100%;
+    margin: 20px 50px;
+}
+
+.indivreporttable {
+    width: 100%;
 }
 
 .indivreporttable td {
@@ -375,6 +398,11 @@ input[type="email"], input[type="password"] {
 .columntitle {
     background-color: rgba(0,31,63, 0.3);
     color: white;
+}
+
+.dashboard-taw-icon {
+    width: 20px;
+    height: 20px;
 }
 
 /* ---------------------- Index-Concerts Section ------------------------ */
@@ -425,8 +453,6 @@ input[type="email"], input[type="password"] {
     margin: 0 auto;
   }
 
-<<<<<<< HEAD
-
 /* ---------------------- BuyTickets Section ------------------------ */
 
 .concert-sections {
@@ -435,28 +461,3 @@ input[type="email"], input[type="password"] {
     margin: 0 auto; /* Centers the container horizontally */
     width: 80%; /* Adjust width as needed */
   }
-  
-  .mvp-section,
-  .vip-section,
-  .myzone-section {
-    background-color: #f2f2f2;
-    padding: 20px;
-    margin: 10px;
-    border: 1px solid #ddd;
-    text-align: center; /* Center text within each section */
-  }
-  
-  .mvp-section h3,
-  .vip-section h3,
-  .myzone-section h3 {
-    margin-bottom: 10px;
-  }
-  
-=======
-  .concert_table td {
-    text-align: center;
-    vertical-align: middle;
-    padding: 5px;
-   }
-/* ---------------------- Index-Concerts Section ------------------------ */
->>>>>>> a1d357b7cde131db38c3c6db4e77d8dd4e771854
