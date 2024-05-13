@@ -119,6 +119,12 @@
                 ?>
             </div>
         </div>
+
+        
+        <h1> STATISTICS </h1>
+
+        
+        <h1> CHART </h1>
         
     </div>
 </body>

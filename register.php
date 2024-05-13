@@ -25,8 +25,9 @@
 			mysqli_query($connection, $sql1);
 
 			$userid = mysqli_insert_id($connection);
+			$regdate = date("Y-m-d");
 
-			$sql2 = "INSERT INTO tbluseraccount (emailadd, username, password, usertype, userid_fk) VALUES ('$email', '$uname', '$pword', 'Customer', '$userid')";
+			$sql2 = "INSERT INTO tbluseraccount (emailadd, username, password, usertype, userid_fk, registration_date) VALUES ('$email', '$uname', '$pword', 'Customer', '$userid', '$regdate')";
 			mysqli_query($connection, $sql2);
 
 			//$_SESSION['user_id'] = mysqli_insert_id($connection);
