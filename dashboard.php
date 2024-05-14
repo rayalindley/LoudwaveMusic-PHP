@@ -4,10 +4,6 @@
     $resultOrg = mysqli_query($connection, $sqlOrg);
 ?>
 
-</html>
-
-    
-
 <body>
     <div class="dashboardcontainer">
         <h1> DASHBOARD </h1>
@@ -36,15 +32,61 @@
             
             <div class="indivstat">
             <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" class="dashboard-taw-icon"/>
-                AVG User Age
+                Average User Age <br/>
+                <?php
+                    //Average user age
+                    $sql = "SELECT AVG(DATEDIFF(CURRENT_DATE(), birthdate) / 365) AS Average_Age FROM tbluserprofile";
+                    $result = mysqli_query($connection, $sql);
+                    while($row = mysqli_fetch_assoc($result)) {
+                        echo round($row["Average_Age"],2);
+                    }
+                ?>
             </div>
             <div class="indivstat">
             <img src="https://img.icons8.com/ios-filled/50/FFFFFF/two-tickets.png" class="dashboard-taw-icon"/>
-                Tickets Sold
+                Tickets Sold <br/>
+                <?php
+                    // Overall tickets sold
+                    $query = "SELECT SUM(tickets_sold) AS TotalTicketsSold FROM tblconcert";
+                    $result = mysqli_query($connection,$query);
+                    while($row = mysqli_fetch_assoc($result)) {
+                        echo $row["TotalTicketsSold"];
+                    }
+                ?>
             </div>
             <div class="indivstat">
             <img src="https://img.icons8.com/ios-filled/50/FFFFFF/two-tickets.png" class="dashboard-taw-icon"/>
-                AVG Concerts
+                Average Concerts / Year <br/>
+                <?php
+                    $query = "SELECT date FROM tblconcert";
+                    $result = mysqli_query($connection, $query);
+
+                    if ($result) {
+                        //Group concerts by year
+                        $concerts_per_year = [];
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $year = date('Y', strtotime($row['date']));
+                            if (!isset($concerts_per_year[$year])) {
+                                $concerts_per_year[$year] = 0;
+                            }
+                            $concerts_per_year[$year]++;
+                        }
+
+                        //Gets the number of concerts/year
+                        $ConCount = [];
+                        foreach ($concerts_per_year as $year => $count) {
+                            $ConCount[] = $count;
+                        }
+
+                        //Overall average
+                        $total_years = count($ConCount);
+                        if ($total_years) {
+                            $sumAve = array_sum($ConCount);
+                            $overallAve = $sumAve / $total_years;
+                            echo round($overallAve, 2);
+                        }
+                    }
+                ?>
             </div>
         </div>
 
@@ -100,8 +142,6 @@
         </div>
 
         <div class="rowreports">
-            
-
             <div class="indivreport">
                 <?php
                     $sqlreport2 = "SELECT p.firstname, p.lastname, p.birthdate, a.emailadd, a.userid_fk
@@ -169,7 +209,6 @@
         
     </div>
 </body>
-</html>
 
 <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
     <script type="text/javascript">
