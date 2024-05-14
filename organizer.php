@@ -20,20 +20,23 @@
                     
                     <?php
                         echo "<h3> Other Organizers </h3>";
-                        echo "<table border='1'>";
+                        echo '<table  class="orgtable">';
 
-                        echo "<td> First Name </td>";
-                        echo "<td> Last Name </td>";
-                        echo "<td> Birthdate </td>";
-                        echo "<td> Email Address </td>";
+                        echo "<tr>";
+                        echo "<th> First Name </th>";
+                        echo "<th> Last Name </th>";
+                        echo "<th> Birthdate </th>";
+                        echo "<th> Email Address </th>";
+                        echo "</tr>";
                         while ($row = mysqli_fetch_assoc($resultOrg)) {
-                            echo "<li>
-                                ID: {$row['organizerid']}</br>
-                                Lastname: {$row['lastname']}</br>
-                                Firstname: {$row['firstname']}</br>
-                                Role: {$row['org_role']}</br></br>
-                            </li>";
+                            echo "<tr>";
+                            echo "<td> ID: {$row['organizerid']} </td>"; 
+                            echo "<td> Lastname: {$row['lastname']} </td>";
+                            echo "<td> Firstname: {$row['firstname']} </td>";
+                            echo "<td> Role: {$row['org_role']} </td>";
+                            echo "</tr>";
                         }
+                        echo "</table>";
                     ?>
                 </ul>
             </div>

@@ -14,7 +14,7 @@
         $emailuname = $_POST['txtemailusername'];
         $password = $_POST['txtpassword'];
     
-        $sql1 = "SELECT * FROM tbluseraccount WHERE username = '$emailuname' OR emailadd = '$emailuname'";
+        $sql1 = "SELECT * FROM tbluseraccount WHERE username = '$emailuname' OR emailadd = '$emailuname' AND isDeleted = 0";
         $result = mysqli_query($connection, $sql1);
         echo $sql1;
     
@@ -24,7 +24,6 @@
             
             if(password_verify($password, $hashed_password)) {
                 $usertype = $user['usertype'];
-                echo $usertype;
 
                 if($usertype == "Organizer") {
                     $_SESSION['isOrganizer'] = true;
@@ -39,8 +38,6 @@
                 //$_SESSION['id'] = $userid;
                 //$_SESSION['user_id'] = mysqli_insert_id($connection);
 
-                
-                echo $userid;
                 header("location: index.php");
                 exit();
             } else {

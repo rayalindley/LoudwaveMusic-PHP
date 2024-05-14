@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	include 'connect.php';
 
 	$message="";
@@ -17,9 +16,10 @@
 		$pass = $_POST['txtpassword'];
 		$pword = password_hash($pass, PASSWORD_DEFAULT);
 	
-		$sql2 = "Select * from tbluseraccount where username='" . $uname . "'";
+		$sql2 = "Select * from tbluseraccount where username='" . $uname . "' OR emailadd='".$email."'";
 		$result = mysqli_query($connection, $sql2);
 		$row = mysqli_num_rows($result);
+
 		if ($row == 0) {
 			$sql1 = "INSERT INTO tbluserprofile (firstname, lastname, gender, birthdate) VALUES ('$fname', '$lname', '$gender', '$bdate')";
 			mysqli_query($connection, $sql1);
@@ -34,12 +34,16 @@
 			//added
 			//$_SESSION['id'] = $userid;
 			//$_SESSION['user_id'] = mysqli_insert_id($connection);
-			$_SESSION['registration_success']=true;
-			header("location: login.php?from=register");
-			//header("location: index.php");
-			exit();
+			//$_SESSION['registration_success']=true;
+
+			$_SESSION['status'] = "Succcessfully Registered!";
+			$_SESSION['status_code'] = "success";
+			//header("location: login.php?from=register");
+			header("location: index.php");
 		} else {
 			$message = "Username or email already existing. Please try again.";
+			//$_SESSION['status'] = "Username or email already existing. Please try again.";
+			//$_SESSION['status_code'] = "error";
 		}
 	}
 ?>
@@ -114,13 +118,6 @@
 	</div>
 </body>
 
-<script language="javascript">
-    function showPass() {
-        var pass = document.getElementById("pw");
-        if (pass.type === "password") {
-            pass.type = "text";
-        } else {
-            pass.type = "password";
-        }
-    }
-</script>   
+<?php
+	include('includes/scripts.php');
+?>

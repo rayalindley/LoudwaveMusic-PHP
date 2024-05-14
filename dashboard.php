@@ -28,23 +28,33 @@
             </div>
             
             <div class="indivstat">
-            <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" class="dashboard-taw-icon"/>
-                Total Males <br>
+                <h6>
+                    <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" class="dashboard-taw-icon"/>
+                    Total Males <br>
+                </h6>
                 Total Females <br>
                 Others 
             </div>
             
             <div class="indivstat">
-            <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" class="dashboard-taw-icon"/>
-                AVG User Age
+                <h6>
+                    <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" class="dashboard-taw-icon"/>
+                    AVG User Age
+                </h6>
             </div>
+
             <div class="indivstat">
-            <img src="https://img.icons8.com/ios-filled/50/FFFFFF/two-tickets.png" class="dashboard-taw-icon"/>
-                Tickets Sold
+                <h6>
+                    <img src="https://img.icons8.com/ios-filled/50/FFFFFF/two-tickets.png" class="dashboard-taw-icon"/>
+                    Tickets Sold
+                </h6>
             </div>
+            
             <div class="indivstat">
-            <img src="https://img.icons8.com/ios-filled/50/FFFFFF/two-tickets.png" class="dashboard-taw-icon"/>
-                AVG Concerts
+                <h6>
+                    <img src="https://img.icons8.com/ios-filled/50/FFFFFF/two-tickets.png" class="dashboard-taw-icon"/>
+                    AVG Concerts
+                </h6>
             </div>
         </div>
 

@@ -11,7 +11,7 @@
     <link href="images/lwmlogo.png" rel="icon">
     <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Ojuju:wght@200..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mohave:ital,wght@0,300..700;1,300..700&family=Passion+One:wght@400;700;900&display=swap" rel="stylesheet">
-    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
     <style>
         <?php include 'css/LoudWave.css'; ?>
@@ -36,9 +36,9 @@
     <div>
         <?php if(isset($_SESSION['user_id'])): ?>
             <?php if(isset($_SESSION['isOrganizer']) && $_SESSION['isOrganizer']): ?>
-                <a href="organizer.php" <?php if($currpage=='organizer.php') echo 'class="currnav"';?>> Profile </a>
                 <a href="#" <?php if($currpage=='concert.php') echo 'class="currnav"';?>> Manage Concerts </a>
                 <a href="dashboard.php" <?php if($currpage=='dashboard.php') echo 'class="currnav"';?>> Dashboard </a>
+                <a href="organizer.php" <?php if($currpage=='organizer.php') echo 'class="currnav"';?>> Profile </a>
             <?php else: ?>
                 <a href="profile.php" class="rightmargin30"> Profile </a>
             <?php endif; ?>

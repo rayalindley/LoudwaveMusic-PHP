@@ -285,8 +285,12 @@ input[type="email"], input[type="password"] {
     margin: 0;
 }
 
+.orgtable {
+    border: 1px solid black;
+}
+
 /* ---------------------- Profile PHP ------------------------ */
-.profilecontainer {
+/* .profilecontainer {
     color: white;
 }
 
@@ -319,22 +323,168 @@ input[type="email"], input[type="password"] {
     display: flex;
 }
 
-.deetlabels label {
-    font-weight: bold;
-    margin: 20px 50px;
+.deetlabels table tr td{
+    font-family: 'Passion One';
+    font-weight: 400;
+    font-size: 24px;
+    padding: 15px 0px 16px 50px;
+    text-align: right;
 }
 
 #editProfileForm input, select {
     text-align: left;
-    margin: 5px 20px;
+    margin: 10px 20px;
     width: 300px;
+    background-color: #004389;
+    color: white;
+    border: 2px #00246b solid;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 #saveBtn::-ms-value {
     max-width: 100px;
     text-align: center;
 
+} */
+
+
+/* ---------------------- Profile PHP ------------------------ */
+
+.profilecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
 }
+
+.customerprofilecontainer {
+    /* background: #0d2f5f; */
+    padding: 0px 50px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+    display: flex;
+    /* max-width: 1000px; */
+}
+
+.leftcontainer {
+    flex: 1;
+    margin-right: 30px;
+}
+
+.leftcontainer nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.leftcontainer nav ul li {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.leftcontainer nav ul li:hover {
+    background: #003F7F;
+}
+
+.currprof {
+    background-color: #004389;
+}
+
+.rightcontainer {
+    flex: 6;
+    background-color: #004389;
+    border-radius: 10px;
+}
+
+.customerdetails {
+    padding: 30px 50px;
+}
+
+.editemailpass label {
+    color: white;
+}
+
+.editemailpass a {
+    font-size: 16px;
+    margin-left: 20px;
+    color: #7FDBFF;
+}
+
+.editdeets {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: flex-start;
+}
+
+.deetlabels label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: white;
+    margin-right: 20px;
+    text-align: right;
+}
+
+.editdeets form {
+    width: 100%;
+}
+
+/* input[type="text"],
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #415a77;
+    border-radius: 5px;
+    background: #002f5f;
+    color: #fff;
+} */
+
+/* input[type="text"]::placeholder,
+select {
+    color: #bbb;
+} */
+
+#editProfileForm input[type="text"], #editProfileForm select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #415a77;
+    border-radius: 5px;
+    background: #002f5f;
+    color: #fff;
+}
+
+
+input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #66AFCC;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100px;
+    margin-right: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #001F3F;
+}
+
+.savedelbtn {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
 
 
 /* ---------------------- Reports Dashboard PHP ------------------------ */
