@@ -9,7 +9,7 @@
         <h1> DASHBOARD </h1>
 
         <div class="rowstats">
-            <div class="indivstat">
+            <div class="indivstat" id="stat1">
                 <h6>
                     <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" class="dashboard-taw-icon"/>
                     Total Users
@@ -18,18 +18,9 @@
                     $totaluserssql = "SELECT acctid, COUNT(*) as total FROM tbluseraccount";
                     $usersres = mysqli_query($connection, $totaluserssql);
                     while($row = mysqli_fetch_array($usersres)) {
-                        echo $row["total"];
+                        echo '<h2 class="statdatares">' . $row["total"] . '</h2>';
                     }
                 ?>
-            </div>
-            
-            <div class="indivstat">
-                <h6>
-                    <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" class="dashboard-taw-icon"/>
-                    Total Males <br>
-                </h6>
-                Total Females <br>
-                Others 
             </div>
             
             <div class="indivstat">
@@ -40,7 +31,7 @@
                     $sql = "SELECT AVG(DATEDIFF(CURRENT_DATE(), birthdate) / 365) AS Average_Age FROM tbluserprofile";
                     $result = mysqli_query($connection, $sql);
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo round($row["Average_Age"],2);
+                        echo '<h2 class="statdatares">' . round($row["Average_Age"],2) . '</h2>';
                     }
                 ?>
             </div>
@@ -53,12 +44,12 @@
                     $query = "SELECT SUM(tickets_sold) AS TotalTicketsSold FROM tblconcert";
                     $result = mysqli_query($connection,$query);
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo $row["TotalTicketsSold"];
+                        echo '<h2 class="statdatares">' . $row["TotalTicketsSold"] . '</h2>';
                     }
                 ?>
             </div>
             
-            <div class="indivstat">
+            <div class="indivstat" id="stat2">
             <img src="https://img.icons8.com/ios-filled/50/FFFFFF/two-tickets.png" class="dashboard-taw-icon"/>
                 Average Concerts / Year <br/>
                 <?php
@@ -87,11 +78,44 @@
                         if ($total_years) {
                             $sumAve = array_sum($ConCount);
                             $overallAve = $sumAve / $total_years;
-                            echo round($overallAve, 2);
+                            echo '<h2 class="statdatares">' . round($overallAve, 2) . '</h2>';
                         }
                     }
                 ?>
             </div>
+        </div>
+
+        <div class="rowreports">
+            <div class="indivreport">
+                <img src="images/usergrowth-graph.png">
+            </div>
+            
+            <div class="indivstat">
+                <h6>
+                    <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" class="dashboard-taw-icon"/>
+                    Total Male Users <br>
+                </h6>
+                <?php
+                    $totalmale = "SELECT gender, COUNT(*) as male FROM tbluserprofile WHERE gender = 'male'";
+                    $maleres = mysqli_query($connection, $totalmale);
+                    while($row = mysqli_fetch_array($maleres)) {
+                        echo '<h2 class="statdatares">' . $row["male"] . '</h2>';
+                    }
+                ?>
+
+                <h6>
+                    <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" class="dashboard-taw-icon"/>
+                    Total Female Users <br>
+                </h6>
+                <?php
+                    $totalmale = "SELECT gender, COUNT(*) as female FROM tbluserprofile WHERE gender = 'female'";
+                    $maleres = mysqli_query($connection, $totalmale);
+                    while($row = mysqli_fetch_array($maleres)) {
+                        echo '<h2 class="statdatares">' . $row["female"] . '</h2>';
+                    }
+                ?>
+            </div>
+            
         </div>
 
         <div class="rowreports">
@@ -200,34 +224,9 @@
                 ?>
             </div>
         </div>
-
         
-        <h1> STATISTICS </h1>
-            <?php
-                $gendersql = "SELECT gender, COUNT(*) AS number FROM tbluserprofile GROUP BY gender";
-                $genderres = mysqli_query($connection, $gendersql);
-            ?>
-            <div id="genderpiechart" style="width: 300px; height: 300px;"></div>
         
-        <h1> CHART </h1>
+        
         
     </div>
 </body>
-
-<script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([['Gender', 'Number'], 
-                <?php
-                    while($row=mysqli_fetch_array($genderres)) {
-                        echo "['" . $row["gender"] . "', " . $row["number"] . "],";
-                     }    
-                ?>
-            ]);
-            var options = {title: 'Statistics by gender', pieHole: 0.4};
-            var chart = new google.visualization.PieChart(document.getElementById('genderpiechart'));
-            chart.draw(data, options);
-        }
-    </script>
