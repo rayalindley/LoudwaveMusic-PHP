@@ -19,5 +19,5 @@ if(isset($_GET['id'])) {
     }
 }
 
-echo "<script>window.location = 'concert.php';</script>";
+echo "<script>window.location = 'manageconcerts.php';</script>";
 ?>

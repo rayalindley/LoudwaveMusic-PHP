@@ -97,7 +97,7 @@
         <div class="rowreports">
             <div class="indivreport">
                 <?php
-                  $query = "SELECT concert_name, date, start_time, end_time, venueid, tickets_sold FROM tblconcert WHERE venueid = 1";
+                  $query = "SELECT concert_name, date, start_time, end_time, venueid, tickets_sold FROM tblconcert WHERE venueid = 1 AND isDeleted = 0";
                   $result = mysqli_query($connection,$query);
                   
                   if(!$result){
@@ -123,7 +123,7 @@
 
             <div class="indivreport">
                 <?php
-                  $query = "SELECT concert_name, date, start_time, end_time, venueid, tickets_sold FROM tblconcert WHERE venueid = 2";
+                  $query = "SELECT concert_name, date, start_time, end_time, venueid, tickets_sold FROM tblconcert WHERE venueid = 2 AND isDeleted = 0";
                   $result = mysqli_query($connection,$query);
                 
 
@@ -179,7 +179,7 @@
 
             <div class="indivreport">
                 <?php
-                    $query = "SELECT concert_name, date, start_time, end_time, venueid, tickets_sold FROM tblconcert WHERE YEAR(date) = 2025";
+                    $query = "SELECT concert_name, date, start_time, end_time, venueid, tickets_sold FROM tblconcert WHERE YEAR(date) = 2025 AND isDeleted = 0";
                     $result = mysqli_query($connection,$query);
                     
                     echo '<h3 class="reportname">Concerts that will be held in 2025</h3>';
