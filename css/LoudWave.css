@@ -44,6 +44,14 @@ footer {
     text-align: center;
 }
 
+.show {
+    visibility: visible;
+}
+
+.hidden {
+    display: none;
+}
+
 .indexlogo {
     width: 50px;
     height: 50px;
@@ -281,7 +289,8 @@ input[type="email"], input[type="password"] {
 } 
 
 .orgprofile-container {
-    background-color: rgba(127, 219, 255, 0.5);
+    background-color: #004389;
+    color: white;
     margin: 0;
 }
 
@@ -509,7 +518,7 @@ input[type="submit"]:hover {
     background-color: #004389;
     border-radius: 20px;
     width: 100%;
-    margin: 20px 50px;
+    margin: 20px 20px;
     padding: 10px;
 }
 
@@ -517,6 +526,24 @@ input[type="submit"]:hover {
     margin: 0;
     font-size: smaller;
 }
+
+.statdatares {
+    font-size: 40px;
+    font-family: 'Passion One';
+    margin: 0px 20px;
+    font-weight: 400;
+}
+
+#stat1 {
+    margin-left: 50px;
+}
+
+#stat2 {
+    margin-right: 50px;
+}
+
+
+
 
 .rowreports {
     display: flex;
@@ -554,6 +581,11 @@ input[type="submit"]:hover {
     width: 20px;
     height: 20px;
 }
+
+.indivreport img{
+    height: 300px;
+}
+
 
 /* ---------------------- Index-Concerts Section ------------------------ */
 #concert-container {
