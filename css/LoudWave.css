@@ -633,6 +633,10 @@ input[type="submit"]:hover {
 
   .concert_table{
     margin: 0 auto;
+    text-align: center;
+  }
+  .concert_table a{
+    color: red;
   }
 
 /* ---------------------- BuyTickets Section ------------------------ */
