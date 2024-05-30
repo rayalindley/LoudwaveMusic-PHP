@@ -1,5 +1,4 @@
 <?php
-	include 'connect.php';
 
 	$message="";
 
@@ -48,23 +47,55 @@
 	}
 ?>
 
-<style>
-	<?php
-		include 'css/raya.css';
-	?>
-</style>
-
 <head>
-    <title> LoudWave Music - Register </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> LoudWave Music </title>
+    <link href="images/lwmlogo.png" rel="icon">
     <link href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Ojuju:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mohave:ital,wght@0,300..700;1,300..700&family=Passion+One:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        <?php include 'css/LoudWave.css'; ?>
+    </style>
 </head>
 
 <body>
-	<header>
-		<div>
-			<a href="index.php"> LoudWave Music </a>
-		</div>
-	</header>
+    <header>
+        <div> 
+            <a href="index.php">
+                <img src="images/lwmlogo.png" class="indexlogo">
+             </a>
+            
+            <a href="index.php">
+                LoudWave Music
+            </a>
+
+        </div>
+
+        <div>
+            <a href="index.php" class="currnav"> Home </a>
+            <a href="#"> Concerts </a>
+            <a href="aboutus.php"> About Us </a>
+            <a href="contactus.php"> Contact Us </a>
+        </div>
+        
+        <div>
+            <?php if(isset($_SESSION['user_id'])): ?>
+                <?php if(isset($_SESSION['isOrganizer']) && $_SESSION['isOrganizer']): ?>
+                    <a href="concertdetails.php"> Manage Concerts </a>
+                    <a href="dashboard.php"> Dashboard </a>
+                    <a href="organizer.php"> Profile </a>
+                <?php else: ?>
+                    <a href="profile.php" class="rightmargin30"> Profile </a>
+                <?php endif; ?>
+            <?php else: ?>
+                <a href="register.php"> Register </a>
+                <a href="login.php" id="loginBtnIndex"><img src="Images/icons8-user-material-rounded/icons8-user-24.png" alt=""> Log in </a>
+            <?php endif; ?>
+        </div>
+
+    </header>
 
 	
 	<div class="container">
@@ -84,7 +115,7 @@
 				<input type="text" name="txtfirstname" placeholder="First Name" required> </br>
 				<input type="text" name="txtlastname" placeholder="Last Name" required> <br />
 
-				<select name="txtgender" id="gender" required> <br />
+				<select name="txtgender" id="gender" required>
 					<option value=""> Gender </option>
 					<option value="Male"> Male</option>
 					<option value="Female"> Female</option>
@@ -93,7 +124,7 @@
 
 				</br>
 
-				<input type="text" name="txtbdate" placeholder="Birthdate" onfocus="(this.type='date')" required>
+				<input type="text" name="txtbdate" placeholder="Birthdate" onfocus="(this.type='date')" required> <br>	
 
 				<input type="email" name="txtemail" placeholder="Email address" required> <br />
 				<input type="text" name="txtusername" placeholder="Username" required> <br />

@@ -28,7 +28,7 @@
 
     <div>
         <a href="index.php" <?php if($currpage == 'index.php') echo 'class="currnav"'; ?>> Home </a>
-        <a href="#"> Concerts </a>
+        <a href="concerts.php" <?php if($currpage=='concerts.php') echo 'class="currnav"';?>> Concerts </a>
         <a href="aboutus.php" <?php if($currpage=='aboutus.php') echo 'class="currnav"';?>> About Us </a>
         <a href="contactus.php" <?php if($currpage=='contactus.php') echo 'class="currnav"';?>> Contact Us </a>
     </div>
@@ -36,7 +36,7 @@
     <div>
         <?php if(isset($_SESSION['user_id'])): ?>
             <?php if(isset($_SESSION['isOrganizer']) && $_SESSION['isOrganizer']): ?>
-                <a href="#" <?php if($currpage=='concert.php') echo 'class="currnav"';?>> Manage Concerts </a>
+                <a href="manageconcerts.php" <?php if($currpage=='manageconcerts.php') echo 'class="currnav"';?>> Manage Concerts </a>
                 <a href="dashboard.php" <?php if($currpage=='dashboard.php') echo 'class="currnav"';?>> Dashboard </a>
                 <a href="organizer.php" <?php if($currpage=='organizer.php') echo 'class="currnav"';?>> Profile </a>
             <?php else: ?>

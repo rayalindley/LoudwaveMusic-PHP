@@ -1,5 +1,6 @@
 <?php
     include 'includes/header.php';
+    
     $sqlOrg = "SELECT * FROM tblorganizer";
     $resultOrg = mysqli_query($connection, $sqlOrg);
 
@@ -26,15 +27,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link href="css/LoudWave.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-
 <body>
     <div class="customerprofilecontainer">
         <div class="leftcontainer">
@@ -120,9 +112,10 @@
                     ?>
                 </div>
             </div>
+            <a href="logout.php"> Log Out</a>
         </div>
 
-        <a href="logout.php">Logout</a>
+        
     </div>
 </body>
 
@@ -132,11 +125,15 @@
         $("#otherorgnav").click(function() {
             $("#cusdeetcon").hide();
             $("#otherorgscon").show();
+            $("#profileorgnav").removeClass("currprof");
+            $("#otherorgnav").addClass("currprof");
         });
 
         $("#profileorgnav").click(function() {
             $("#cusdeetcon").show();
             $("#otherorgscon").hide();
+            $("#otherorgnav").removeClass("currprof");
+            $("#profileorgnav").addClass("currprof");
         });
     });
 </script>

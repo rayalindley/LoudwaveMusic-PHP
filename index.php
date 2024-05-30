@@ -33,7 +33,7 @@
 
         <div>
             <a href="index.php" class="currnav"> Home </a>
-            <a href="#"> Concerts </a>
+            <a href="concerts.php"> Concerts </a>
             <a href="aboutus.php"> About Us </a>
             <a href="contactus.php"> Contact Us </a>
         </div>
@@ -41,7 +41,7 @@
         <div>
             <?php if(isset($_SESSION['user_id'])): ?>
                 <?php if(isset($_SESSION['isOrganizer']) && $_SESSION['isOrganizer']): ?>
-                    <a href="concertdetails.php"> Manage Concerts </a>
+                    <a href="manageconcerts.php"> Manage Concerts </a>
                     <a href="dashboard.php"> Dashboard </a>
                     <a href="organizer.php"> Profile </a>
                 <?php else: ?>
@@ -93,19 +93,19 @@
             <div id="concert-container">
                 <div class="concert-content">
                     <div>
-                        <a href="ticket.php?concertname=R%20to%20V"><img src="images/concert_rtov.png"></a>
+                        <a href="ticket.php?concertname=R to V"><img src="images/concert_rtov.png"></a>
                     </div>
 
                     <div class="concert_maindeets">
                         <h5> R to V </h5>
                         <h6> SM Seaside Arena <br> April 15, 2025 </h6>
                     </div>
-                    <a href="ticket.php?concertname=R%20to%20V"> Buy Tickets >>>>> </a>
+                    <a href="ticket.php?concertname=R to V"> Buy Tickets >>>>> </a>
                 </div>
 
                 <div class="concert-content">
                     <div>
-                        <a href=""><img src="images/concert_bornpink.png"></a>
+                        <a href="ticket.php?concertname=Born Pink"><img src="images/concert_bornpink.png"></a>
                     </div>
                     
                     <div class="concert_maindeets">
@@ -113,12 +113,12 @@
                         <h6> SM Seaside Arena </br>
                         April 15, 2025 </h6>
                     </div>
-                    <a href=""> Buy Tickets >>>>> </a>
+                    <a href="ticket.php?concertname=Born Pink"> Buy Tickets >>>>> </a>
                 </div>
                 
                 <div class="concert-content">
                     <div>
-                        <a href=""><img src="images/concert_unisverse.png"></a>
+                        <a href="ticket.php?concertname=Unis Verse"><img src="images/concert_unisverse.png"></a>
                     </div>
                     
                     <div class="concert_maindeets">
@@ -126,12 +126,12 @@
                         <h6> SM Seaside Arena </br>
                         April 15, 2025 </h6>
                     </div>
-                    <a href=""> Buy Tickets >>>>> </a>
+                    <a href="ticket.php?concertname=Unis Verse"> Buy Tickets >>>>> </a>
                 </div>
                 
                 <div class="concert-content">
                     <div>
-                        <a href=""><img src="images/concert_synk.png"></a>
+                        <a href="ticket.php?concertname=SYNK: Parallel Line"><img src="images/concert_synk.png"></a>
                     </div>
                     
                     <div class="concert_maindeets">
@@ -139,12 +139,12 @@
                         <h6> SM Seaside Arena </br>
                         April 15, 2025 </h6>
                     </div>
-                    <a href=""> Buy Tickets >>>>> </a>
+                    <a href="ticket.php?concertname=SYNK: Parallel Line"> Buy Tickets >>>>> </a>
                 </div>
                 
                 <div class="concert-content">
                     <div>
-                        <a href=""><img src="images/concert_biniverse.png"></a>
+                        <a href="ticket.php?concertname=BINIverse: The First Solo Concert"><img src="images/concert_biniverse.png"></a>
                     </div>
                     
                     <div class="concert_maindeets">
@@ -152,7 +152,7 @@
                         <h6> SM Seaside Arena </br>
                         April 15, 2025 </h6>
                     </div>
-                    <a href=""> Buy Tickets >>>>> </a>
+                    <a href="ticket.php?concertname=BINIverse: The First Solo Concert"> Buy Tickets >>>>> </a>
                 </div>
 
                 

@@ -640,10 +640,71 @@ input[type="submit"]:hover {
   }
 
 /* ---------------------- BuyTickets Section ------------------------ */
+/* .ticketphp {
+    color: white;
+} */
 
-.concert-sections {
-    display: flex; /* Arranges sections side-by-side */
-    flex-wrap: wrap; /* Allows sections to wrap to multiple lines */
-    margin: 0 auto; /* Centers the container horizontally */
-    width: 80%; /* Adjust width as needed */
+.whitebgfromheader {
+    background-color: white;
+    padding: 50px 50px;
+}
+
+  .tixdiv {
+    display: flex;
+  }
+
+  .imgdiv_tix {
+    width: 20%;
+  }
+
+  .descdiv_tix {
+    width: 80%;
+  }
+
+  .descdiv_tix h1 {
+    margin: 0px;
+    font-size: 32px;
+    font-family: 'Passion One', sans-serif;
+    font-weight: normal;
+  }
+  
+  .descdiv_tix h2 {
+    margin: 0px;
+    font-family: 'Mohave';
+  }
+
+  .descdiv_tix h3 {
+    margin: 0px;
+    font-family: 'Passion One', sans-serif;
+    font-weight: normal;
+  }
+
+  .concertmig_tix {
+    width: 200px;
+  }
+
+  .concert-sections {
+    padding: 50px 10px;
+    background-color: #001F3F;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .concert-sections div {
+    font-weight: normal;
+    width: 30%;
+  }
+
+  .concert-sections div h1 {
+    font-weight: normal;
+    margin: 0px;
+  }
+  .concert-sections div h2 {
+    font-weight: normal;
+    margin: 0px;
+  }
+
+  .concert-sections div h3 {
+    font-weight: normal;
   }

@@ -15,7 +15,7 @@
                     Total Users
                 </h6>
                 <?php
-                    $totaluserssql = "SELECT acctid, COUNT(*) as total FROM tbluseraccount";
+                    $totaluserssql = "SELECT acctid, COUNT(*) as total FROM tbluseraccount WHERE isDeleted=0 AND usertype='Customer'";
                     $usersres = mysqli_query($connection, $totaluserssql);
                     while($row = mysqli_fetch_array($usersres)) {
                         echo '<h2 class="statdatares">' . $row["total"] . '</h2>';
@@ -27,7 +27,6 @@
             <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" class="dashboard-taw-icon"/>
                 Average User Age <br/>
                 <?php
-                    //Average user age
                     $sql = "SELECT AVG(DATEDIFF(CURRENT_DATE(), birthdate) / 365) AS Average_Age FROM tbluserprofile";
                     $result = mysqli_query($connection, $sql);
                     while($row = mysqli_fetch_assoc($result)) {
@@ -40,8 +39,7 @@
             <img src="https://img.icons8.com/ios-filled/50/FFFFFF/two-tickets.png" class="dashboard-taw-icon"/>
                 Tickets Sold <br/>
                 <?php
-                    // Overall tickets sold
-                    $query = "SELECT SUM(tickets_sold) AS TotalTicketsSold FROM tblconcert";
+                    $query = "SELECT SUM(tickets_sold) AS TotalTicketsSold FROM tblconcert WHERE isDeleted = 0";
                     $result = mysqli_query($connection,$query);
                     while($row = mysqli_fetch_assoc($result)) {
                         echo '<h2 class="statdatares">' . $row["TotalTicketsSold"] . '</h2>';
@@ -93,7 +91,7 @@
             <div class="indivstat">
                 <h6>
                     <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" class="dashboard-taw-icon"/>
-                    Total Male Users <br>
+                    Male Users <br>
                 </h6>
                 <?php
                     $totalmale = "SELECT gender, COUNT(*) as male FROM tbluserprofile WHERE gender = 'male'";
@@ -105,13 +103,25 @@
 
                 <h6>
                     <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" class="dashboard-taw-icon"/>
-                    Total Female Users <br>
+                    Female Users <br>
                 </h6>
                 <?php
                     $totalmale = "SELECT gender, COUNT(*) as female FROM tbluserprofile WHERE gender = 'female'";
                     $maleres = mysqli_query($connection, $totalmale);
                     while($row = mysqli_fetch_array($maleres)) {
                         echo '<h2 class="statdatares">' . $row["female"] . '</h2>';
+                    }
+                ?>
+
+                <h6>
+                    <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/person-male.png" class="dashboard-taw-icon"/>
+                    Other Users <br>
+                </h6>
+                <?php
+                    $totalmale = "SELECT gender, COUNT(*) as others FROM tbluserprofile WHERE gender = 'others'";
+                    $maleres = mysqli_query($connection, $totalmale);
+                    while($row = mysqli_fetch_array($maleres)) {
+                        echo '<h2 class="statdatares">' . $row["others"] . '</h2>';
                     }
                 ?>
             </div>
