@@ -25,7 +25,7 @@ include 'includes/header.php';
                 echo "<h3>Concert List</h3>";
                 echo "<button onclick=\"location.href='concertForm.php'\">Add Concert</button>";
                 echo "<table class='concert_table' border='1'>";
-                echo "<tr><th>Poster</th><th>Concert Name</th><th>Date</th><th>Time</th><th>Venue</th><th>Tickets Sold</th><th>Edit</th><th>Delete</th></tr>";
+                echo "<tr><th>Poster</th><th>Concert Name</th><th>Date</th><th>Time</th><th>Venue</th><th>Ticket Price</th><th>Tickets Sold</th><th>Edit</th><th>Delete</th></tr>";
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
                     $image = !empty($row['image_path']) ? $row['image_path'] : "images/image_placeholder.png";
@@ -34,6 +34,7 @@ include 'includes/header.php';
                     echo "<td>" . $row['date'] . "</td>";
                     echo "<td>" . $row['start_time'] . " - " . $row['end_time'] . "</td>";
                     echo "<td>" . $row['venue_name'] . "</td>";
+                    echo "<td>" . $row['ticket_price'] . "</td>";
                     echo "<td>" . $row['tickets_sold'] . "</td>";
                     echo "<td> <a href='concertForm.php?id={$row['concertid']}'>Edit</a> </td>";
                     echo "<td><a href='delete_concert.php?id={$row['concertid']}' onclick=\"return confirm('Are you sure you want to delete this concert?')\">Delete</a></td>";

@@ -59,6 +59,10 @@ if (isset($_GET['id'])) {
             <input type="time" class="form-control form-control-md" name="end_time" value="<?php echo isset($concert_data['end_time']) ? $concert_data['end_time'] : ''; ?>" required>
         </div>
         <div class="col-sm-6 mb-3">
+            <label class="form-label">Tickect Price *</label>
+            <input type="number" class="form-control form-control-md" name="ticket_price" value="<?php echo isset($concert_data['ticket_price']) ? $concert_data['ticket_price'] : ''; ?>" required>
+        </div>
+        <div class="col-sm-6 mb-3">
             <label class="form-label">Concert Venue *</label>
             <select class="form-control form-control-md" name="venue_text" required>
                 <option value="">Select a venue</option>
@@ -92,6 +96,8 @@ if (isset($_POST['btnconcert'])) {
     $start_time = $_POST['start_time'];
     $end_time = $_POST['end_time'];
     $venue_text = $_POST['venue_text'];
+    $ticket_price = $_POST['ticket_price'];
+    
 
     // Retrieve venue ID
     $venue_query = "SELECT venueid FROM tblvenue WHERE venue_name = ?";
@@ -164,12 +170,12 @@ if (isset($_POST['btnconcert'])) {
             exit();
         }
 
-        $insert_query = "INSERT INTO tblconcert (concert_name, date, start_time, end_time, venueid) VALUES (?, ?, ?, ?, ?)";
+        $insert_query = "INSERT INTO tblconcert (concert_name, date, start_time, end_time, ticket_price, tickets_sold, venueid) VALUES (?, ?, ?, ?, ?, 0, ?)";
         if ($insert_stmt = mysqli_prepare($connection, $insert_query)) {
-            mysqli_stmt_bind_param($insert_stmt, "ssssi", $name, $date, $start_time, $end_time, $venueid);
+            mysqli_stmt_bind_param($insert_stmt, "ssssii", $name, $date, $start_time, $end_time, $ticket_price, $venueid);
             if (mysqli_stmt_execute($insert_stmt)) {
                 $last_id = mysqli_insert_id($connection);
-                echo "<script language='javascript'> alert('New record saved.'); window.location.replace('concert.php?id=$last_id');</script>";
+                echo "<script language='javascript'> alert('New record saved.'); window.location.replace('manageconcerts.php?id=$last_id');</script>";
                 exit();
             } else {
                 echo "Error: " . mysqli_error($connection);

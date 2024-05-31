@@ -75,7 +75,7 @@
             <h3> Ticket redemption through a representative is NOT allowed. Only the cardholder who transacted online can redeem the ticket. To avoid any inconvenience, we request our patrons to comply with the above guidelines. The safety and security of our customers is always our top priority. By proceeding to payment, you agree with the above redemption process. Price is inclusive of standard ticket charges. </h3>
             </div>
             <div>Price</div>
-            <div><button>Buy Tickets</button></div>
+            <div><button onclick="location.href='seats.php'">Buy Tickets</button></div>
         </div>
     </body>
 </html>
