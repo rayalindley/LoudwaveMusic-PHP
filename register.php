@@ -1,5 +1,6 @@
 <?php
-
+	include 'connect.php';
+	session_start();
 	$message="";
 
 	if (isset ($_POST['btnRegister'])) {
