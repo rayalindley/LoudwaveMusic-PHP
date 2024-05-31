@@ -1,6 +1,6 @@
 <?php    
-    include 'connect.php';
     session_start();
+    include 'connect.php';
 
     $message="";
 
@@ -69,8 +69,8 @@
     </header>
 
     <div id="menu">
-        <a href="aboutUsPage.html"> About Us </a>
-        <a href="contactPage.html"> Contact Us </a>
+        <a href="aboutus.php"> About Us </a>
+        <a href="contactus.php"> Contact Us </a>
     </div>
 
     <div>

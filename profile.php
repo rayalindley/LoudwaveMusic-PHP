@@ -1,6 +1,6 @@
 <?php
 include 'connect.php';
-include 'includes/scripts.php';
+session_start();
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
