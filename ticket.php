@@ -12,23 +12,7 @@
             <?php if(!isset($_SESSION['user_id'])): ?>
                 <div> To buy or to view price availability, please log in <a href="login.php"> here </a> </div>
 
-            <?php else: ?>
-                <?php
-                    $sqlconcert = "SELECT * FROM tblconcert WHERE concert_name = '{$concertname}'";
-                    $res = mysqli_query($connection, $sqlconcert);
-
-                    if(mysqli_num_rows($res) > 0) {
-                        $row = mysqli_fetch_assoc($res);
-                        echo "<div>";
-                        echo '<img src="'. $row['image_path'].'">';
-                        echo "<div>";
-                        echo $row['concert_name'];
-                        echo "Date: " . $row['date'];
-                        echo "<div>";
-                    } else {
-                        echo "Concert not found!";
-                    }
-                ?>
+            
                 
             <?php endif; ?>
 

@@ -150,7 +150,3 @@
 		</div>
 	</div>
 </body>
-
-<?php
-	include('includes/scripts.php');
-?>
