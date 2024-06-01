@@ -27,6 +27,13 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="css/LoudWave.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
 <body>
     <div class="customerprofilecontainer">
         <div class="leftcontainer">
@@ -79,7 +86,6 @@
 
             <div id="otherorgscon" class="orgprofile-container hidden">
                 <div id="organizer-container">
-
                     <?php
                         echo '<table class="orgtable">';
 
@@ -114,28 +120,31 @@
             </div>
             <a href="logout.php"> Log Out</a>
         </div>
-
-        
     </div>
 </body>
+
+<script src="js/LoudWave.js"></script>
+</html>
+
 
 <script src="js/LoudWave.js"></script>
 <script>
     $(document).ready(function() {
         $("#otherorgnav").click(function() {
-            $("#cusdeetcon").hide();
-            $("#otherorgscon").show();
+            $("#cusdeetcon").addClass("hidden");
+            $("#otherorgscon").removeClass("hidden");
             $("#profileorgnav").removeClass("currprof");
             $("#otherorgnav").addClass("currprof");
         });
 
         $("#profileorgnav").click(function() {
-            $("#cusdeetcon").show();
-            $("#otherorgscon").hide();
+            $("#cusdeetcon").removeClass("hidden");
+            $("#otherorgscon").addClass("hidden");
             $("#otherorgnav").removeClass("currprof");
             $("#profileorgnav").addClass("currprof");
         });
     });
+
 </script>
 
 </html>

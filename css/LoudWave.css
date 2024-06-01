@@ -240,7 +240,6 @@ input[type="email"], input[type="password"] {
 
 .container {
     padding: 4vh;
-    height: 100%;
     text-align: center;
     background-color: aliceblue;
     color: black;
@@ -284,7 +283,7 @@ input[type="email"], input[type="password"] {
 
 /* ---------------------- Organizer PHP ------------------------ */
 
-#organizer-container ul {
+/* #organizer-container ul {
     list-style-type: none;
 } 
 
@@ -296,7 +295,81 @@ input[type="email"], input[type="password"] {
 
 .orgtable {
     border: 1px solid black;
+    color: white;
 }
+
+.orgtable tr {
+    padding: 10px;
+} */
+
+/* Table container styling */
+.orgprofile-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Table styling */
+.orgtable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Table headers */
+.orgtable th {
+    background-color: #001F3F;
+    color: white;
+    text-align: left;
+    padding: 10px;
+}
+
+/* Table cells */
+.orgtable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+/* Alternate row colors */
+.orgtable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover effect for rows */
+.orgtable tr:hover {
+    background-color: #ddd;
+}
+
+/* Add some spacing between the table and the container */
+.orgprofile-container table {
+    margin-top: 20px;
+}
+
+/* Style the first and last name columns differently (optional) */
+.orgtable td:first-child,
+.orgtable td:nth-child(2),
+.orgtable td:nth-child(3) {
+    font-weight: bold;
+}
+
+/* Style for the action buttons */
+.savedelbtn input[type="submit"] {
+    background-color: #001F3F;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.savedelbtn input[type="submit"]:hover {
+    background-color: #00246b;
+}
+
+
 
 /* ---------------------- Profile PHP ------------------------ */
 /* .profilecontainer {
